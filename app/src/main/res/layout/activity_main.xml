@@ -7,4 +7,27 @@
     android:background="@color/black"
     tools:context="co.ke.biofit.haemotyping.activity.MainActivity">
 
-    </RelativeLayout>
+    <TextView
+        android:id="@+id/appNameTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="35dp"
+        android:background="@color/colorPrimaryDark"
+        android:text=" `Donate Blood`"
+        android:textColor="@color/colorAccent"
+        android:textSize="50sp"
+        android:textStyle="bold" />
+    <Button
+        android:id="@+id/snapButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:background="@color/colorAccent"
+        android:text="Camera"
+        android:textColor="@color/colorPrimary" />
+
+
+</RelativeLayout>
