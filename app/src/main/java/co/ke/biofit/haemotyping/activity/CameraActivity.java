@@ -47,8 +47,8 @@ public class CameraActivity extends Activity {
                 e.printStackTrace();
             }
 
-            Intent i = new Intent(getBaseContext(), UploadImageActivty.class);
-            i.putExtra(UploadImageActivty.ARG_IMAGE_URI, Uri.fromFile(pictureFile));
+            Intent i = new Intent(getBaseContext(), UploadImageActivity.class);
+            i.putExtra(UploadImageActivity.ARG_IMAGE_URI, Uri.fromFile(pictureFile));
             startActivity(i);
             finish();
         }
@@ -91,8 +91,8 @@ public class CameraActivity extends Activity {
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (requestCode == IMAGE_PICKER_SELECT && resultCode != 0) {
             Uri bitmapUri = data.getData();
-            Intent i = new Intent(getBaseContext(), UploadImageActivty.class);
-            i.putExtra(UploadImageActivty.ARG_IMAGE_URI, bitmapUri);
+            Intent i = new Intent(getBaseContext(), UploadImageActivity.class);
+            i.putExtra(UploadImageActivity.ARG_IMAGE_URI, bitmapUri);
             startActivity(i);
         }
         finish();

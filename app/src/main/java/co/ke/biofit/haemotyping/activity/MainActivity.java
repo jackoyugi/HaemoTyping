@@ -23,6 +23,7 @@ import co.ke.biofit.haemotyping.R;
 import co.ke.biofit.haemotyping.adapter.SectionsPagerAdapter;
 import co.ke.biofit.haemotyping.fragment.BrowseFragment;
 import co.ke.biofit.haemotyping.fragment.HomeFragment;
+import co.ke.biofit.haemotyping.util.MediaUtils;
 import co.ke.biofit.haemotyping.util.TabUtils;
 
 
