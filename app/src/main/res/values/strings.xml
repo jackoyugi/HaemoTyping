@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Haemo Typing</string>
+    <string name="title_action_snap" translatable="false">Snap it!</string>
 </resources>
