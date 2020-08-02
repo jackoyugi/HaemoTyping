@@ -1,4 +1,6 @@
 package co.ke.biofit.haemotyping.fragment;
 
-public class BrowseFragment {
+import androidx.fragment.app.Fragment;
+
+public class BrowseFragment extends Fragment {
 }

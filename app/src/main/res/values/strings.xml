@@ -2,4 +2,6 @@
     <string name="app_name">Haemo Typing</string>
     <string name="title_home_tab" translatable="false">Home</string>
     <string name="title_action_snap" translatable="false">Snap it!</string>
+    <string name="rand_thumb_description" translatable="false">Thumbnail displaying random species.</string>
+    <string name="logo_description" translatable="false">Applciation logo.</string>
 </resources>
