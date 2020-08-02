@@ -4,4 +4,6 @@
     <string name="title_action_snap" translatable="false">Snap it!</string>
     <string name="rand_thumb_description" translatable="false">Thumbnail displaying random species.</string>
     <string name="logo_description" translatable="false">Applciation logo.</string>
+    <string name="center_leaf_instr">Center leaf in the frame.</string>
+    <string name="white_bg_instr">Place leaf on a white background.</string>
 </resources>
