@@ -10,8 +10,8 @@ public class TabUtils {
     private static boolean updateCurrentTab = true;
 
     private static final int[] tabsTitlesIds = {
-            R.string.title_home_tab;
-
+            R.string.title_home_tab,
+    };
 
     public static void setCurrentTabPosition(int position) {
         if (updateCurrentTab) currentTabPosition = position;

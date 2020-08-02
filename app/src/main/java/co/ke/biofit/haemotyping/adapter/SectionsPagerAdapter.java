@@ -1,21 +1,44 @@
 package co.ke.biofit.haemotyping.adapter;
 
+import android.content.Context;
 import android.view.View;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
-import androidx.viewpager.widget.PagerAdapter;
+import androidx.fragment.app.FragmentPagerAdapter;
 
-import co.ke.biofit.haemotyping.activity.MainActivity;
 
-public class SectionsPagerAdapter extends PagerAdapter {
+import co.ke.biofit.haemotyping.util.TabUtils;
 
-    public SectionsPagerAdapter(MainActivity mainActivity, FragmentManager supportFragmentManager, Fragment[] mFragments) {
+public class SectionsPagerAdapter extends FragmentPagerAdapter {
+    private Fragment[] mFragments;
+    private Context mContext;
+
+    public SectionsPagerAdapter(Context context, FragmentManager fm, Fragment[] fragments) {
+        super(fm);
+        this.mContext = context;
+        this.mFragments = fragments;
     }
+
+    @Override
+    public Fragment getItem(int position) {
+        return getPageFragment(position);
+    }
+
+    public Fragment getPageFragment(int position) {
+        return mFragments[position];
+    }
+
+
     @Override
     public int getCount() {
-        return 0;
+        return TabUtils.TAB_COUNT;
+    }
+
+    @Override
+    public CharSequence getPageTitle(int position) {
+        return mContext.getResources().getString(TabUtils.getTabTitleId(position));
     }
 
     @Override

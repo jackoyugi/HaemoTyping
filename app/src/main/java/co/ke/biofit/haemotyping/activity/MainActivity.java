@@ -2,31 +2,34 @@ package co.ke.biofit.haemotyping.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.MenuItemCompat;
+
 import androidx.fragment.app.FragmentTransaction;
 import androidx.viewpager.widget.ViewPager;
 
 import android.annotation.SuppressLint;
 import androidx.appcompat.app.ActionBar;
-import android.app.ActionBar.Tab;
+
+//import android.app.Fragment;
 import android.app.Fragment;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.util.Log;
 
 import java.util.ArrayList;
 
 import co.ke.biofit.haemotyping.R;
 import co.ke.biofit.haemotyping.adapter.SectionsPagerAdapter;
+import co.ke.biofit.haemotyping.fragment.BrowseFragment;
+import co.ke.biofit.haemotyping.fragment.HomeFragment;
 import co.ke.biofit.haemotyping.util.TabUtils;
 
 
 @SuppressWarnings("ALL")
 public class MainActivity extends AppCompatActivity implements ActionBar.TabListener {
-    private static final Fragment[] mFragments = new Fragment[]{
-            new Fragment(),
-            new Fragment()
+    private static final Fragment[] mFragments ={
+            new HomeFragment(),
+            new BrowseFragment()
 
     };
     private ArrayList<ActionBar.Tab> mTabs;
