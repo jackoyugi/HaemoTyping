@@ -20,7 +20,7 @@ public class SectionsPagerAdapter extends FragmentPagerAdapter {
         this.mContext = context;
         this.mFragments = fragments;
     }
-
+    @NonNull
 
     @Override
     public Fragment getItem(int position) {

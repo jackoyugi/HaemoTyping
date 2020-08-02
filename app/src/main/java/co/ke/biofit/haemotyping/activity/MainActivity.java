@@ -40,21 +40,21 @@ public class MainActivity extends AppCompatActivity implements ActionBar.TabList
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        setupActionBar();
+//
+//        setupActionBar();
     }
 
-    private void setupActionBar() {
-        mActionBar = getSupportActionBar();
-        mActionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
-        setupPageViewer();
-        mTabs = new ArrayList<ActionBar.Tab>();
-        for (int i = 0; i < mSectionsPagerAdapter.getCount(); i++) {
-            ActionBar.Tab t = mActionBar.newTab().setText(TabUtils.getTabTitleId(i)).setTabListener(this);
-            mTabs.add(t);
-            mActionBar.addTab(t);
-        }
-    }
+//    private void setupActionBar() {
+//        mActionBar = getSupportActionBar();
+//        mActionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
+//        setupPageViewer();
+//        mTabs = new ArrayList<ActionBar.Tab>();
+//        for (int i = 0; i < mSectionsPagerAdapter.getCount(); i++) {
+//            ActionBar.Tab t = mActionBar.newTab().setText(TabUtils.getTabTitleId(i)).setTabListener(this);
+//            mTabs.add(t);
+//            mActionBar.addTab(t);
+//        }
+//    }
 
     @SuppressLint("WrongViewCast")
     private void setupPageViewer() {
