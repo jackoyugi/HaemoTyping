@@ -6,4 +6,5 @@
     <string name="logo_description" translatable="false">Applciation logo.</string>
     <string name="center_leaf_instr">Center leaf in the frame.</string>
     <string name="white_bg_instr">Place leaf on a white background.</string>
+    <string name="uploading_image">Uploading image.</string>
 </resources>
