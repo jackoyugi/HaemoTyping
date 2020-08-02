@@ -21,6 +21,7 @@ public class SectionsPagerAdapter extends FragmentPagerAdapter {
         this.mFragments = fragments;
     }
 
+
     @Override
     public Fragment getItem(int position) {
         return getPageFragment(position);

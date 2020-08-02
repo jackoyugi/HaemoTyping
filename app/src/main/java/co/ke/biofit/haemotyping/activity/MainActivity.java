@@ -20,16 +20,14 @@ import java.util.ArrayList;
 
 import co.ke.biofit.haemotyping.R;
 import co.ke.biofit.haemotyping.adapter.SectionsPagerAdapter;
-import co.ke.biofit.haemotyping.fragment.BrowseFragment;
-import co.ke.biofit.haemotyping.fragment.HomeFragment;
 import co.ke.biofit.haemotyping.util.TabUtils;
 
 
 @SuppressWarnings("ALL")
 public class MainActivity extends AppCompatActivity implements ActionBar.TabListener {
-    private static final Fragment[] mFragments ={
-            new HomeFragment(),
-            new BrowseFragment()
+    private static final androidx.fragment.app.Fragment[] mFragments ={
+            new androidx.fragment.app.Fragment(),
+            new androidx.fragment.app.Fragment()
 
     };
     private ArrayList<ActionBar.Tab> mTabs;

@@ -3,4 +3,11 @@
     <color name="colorPrimary">#6200EE</color>
     <color name="colorPrimaryDark">#3700B3</color>
     <color name="colorAccent">#03DAC5</color>
+    <color name="black">#000000</color>
+    <color name="white">#FFFFFF</color>
+    <color name="leafsnap_grey">#DBD6D2</color>
+    <color name="leafsnap_green">#91AF00</color>
+    <color name="white_overlay">#22FFFFFF</color>
+    <color name="list_header_grey">#4D4D4D</color>
+    <color name="black_overlay">#66000000</color>
 </resources>

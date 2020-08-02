@@ -6,15 +6,25 @@
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
     </style>
-    <color name="black">#000000</color>
-    <color name="white">#FFFFFF</color>
-    <color name="leafsnap_grey">#DBD6D2</color>
-    <color name="leafsnap_green">#91AF00</color>
-    <color name="white_overlay">#22FFFFFF</color>
-    <color name="list_header_grey">#4D4D4D</color>
-    <color name="black_overlay">#66000000</color>
-    <color name="colorPrimary">#FF5722</color>
-    <color name="colorPrimaryDark">#E64A19</color>
-    <color name="colorAccent">#009688</color>
+
+    <style name="FullscreenTheme" parent="android:Theme.NoTitleBar">
+        <!-- Customize your theme here. -->
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowBackground">@null</item>
+        <!--        <item name="metaButtonBarStyle">@style/ButtonBar</item>-->
+        <!--        <item name="metaButtonBarButtonStyle">@style/ButtonBarButton</item>-->
+    </style>
+
+    <!-- Backward-compatible version of ?android:attr/buttonBarStyle -->
+    <style name="ButtonBar">
+        <item name="android:paddingLeft">2dp</item>
+        <item name="android:paddingTop">5dp</item>
+        <item name="android:paddingRight">2dp</item>
+        <item name="android:paddingBottom">0dp</item>
+        <item name="android:background">@android:drawable/bottom_bar</item>
+    </style>
+
+    <!-- Backward-compatible version of ?android:attr/buttonBarButtonStyle -->
+    <style name="ButtonBarButton" />
 
 </resources>
