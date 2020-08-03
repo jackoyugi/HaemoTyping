@@ -29,9 +29,9 @@ This is folder contains all the source code for the app. The code is divided in 
   * adapter
     * This package contains the Adapters used in Activities and Fragments.
   * api
-    * This package basically contains the code translate from the iOS version of the app, used to access the database and execute operation such as user creation, submitting an image and etc.
+    * This package basically contains...............
   * data
-    * This package is very important for the database configuration. Here are kept two files: DatabaseHelper.java and DatabaseConfigUtil.java. The former is an Android class used to persist the database, using DAOs for every model class. It also opens the pre-populated database shipped with app, so be careful in making changes. The latter is actually a Java application, not related to the app. This application must be run every time the model files for the database are changed, so it can create the aforementioned file ormlite_config.xml used to improve database performance.
+    * This package is very important for the database configuration.
   * fragment
     * The fragment package contains all the Fragments of the app.
   * model
@@ -55,7 +55,7 @@ Some useful tools used during development:
  |                                           |                                                                            |
 
 ## Repo Link
-https://github.com/jackoyugi/HaemoType
+https://github.com/jackoyugi/HaemoTyping
 
 
 ## Support and contact details
