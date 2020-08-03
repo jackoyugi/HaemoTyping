@@ -22,7 +22,7 @@ public class HaemotypeArrayAdapter extends ArrayAdapter {
         public Object getItem(int position) {
             String collectedSample = mCollectedSample[position];
             String bloodGroup = mBloodGroup[position];
-            return String.format("%s \nServes great: %s", collectedSample, bloodGroup);
+            return String.format("%s \nBlood Group: %s", collectedSample, bloodGroup);
         }
         @Override
         public int getCount() {

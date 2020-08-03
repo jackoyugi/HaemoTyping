@@ -7,7 +7,10 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="My Blood Groups near me "
+        android:text="Your Blood Groups near you!"
+        android:textColor="@color/colorPrimaryDarkb"
+        android:textSize="20sp"
+        android:textStyle="bold"
         android:id="@+id/locationTextView"
         android:layout_centerVertical="true"
         android:layout_centerHorizontal="true" />
@@ -17,6 +20,8 @@
         android:layout_height="wrap_content"
         android:id="@+id/listView"
         android:padding="5dp"
+        android:textSize="30sp"
+        android:textStyle="bold"
         android:layout_below="@+id/locationTextView"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true" />

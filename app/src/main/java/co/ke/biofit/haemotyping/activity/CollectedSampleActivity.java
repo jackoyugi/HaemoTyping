@@ -24,9 +24,9 @@ public class CollectedSampleActivity extends AppCompatActivity {
     @BindView(R.id.listView) ListView mListView;
 
     private String[] collectedSample = new String[] {"Jack Winter", "Winnie's Pinches",
-            "Seeds of Gold", "The Pupper", "Luc Lac", "Sweet Basil", "Grace Butt"};
+            "Seeds of Gold", "The Pupper", "Luc Lac", "Sweet Basil", "Grace Butt", "Cate Jitter", "The Movers", "We the Winner", "Dont Ask", "Am Here"};
 
-    private String[] bloodGroup = new String[] {"O+/Rh+", "A-/Rh-", "B+/Rh+", "A+/Rh-", "AB-/Rh-", "AB+/Rh+", "O+/Rh+" };
+    private String[] bloodGroup = new String[] {"O+/Rh+", "A-/Rh-", "B+/Rh+", "A+/Rh-", "AB-/Rh-", "AB+/Rh+", "O+/Rh+", "A+", "AB-", "O+", "B+", "B-"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
