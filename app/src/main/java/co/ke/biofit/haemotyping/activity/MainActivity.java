@@ -8,10 +8,13 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import co.ke.biofit.haemotyping.R;
+import co.ke.biofit.haemotyping.fragment.HomeFragment;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     public static final String TAG = MainActivity.class.getSimpleName();
@@ -26,6 +29,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         ButterKnife.bind(this);
 
         mSnapButton.setOnClickListener(this);
+
+        FragmentManager fm = getSupportFragmentManager();
+        HomeFragment HomeFragment = new HomeFragment ();
+        HomeFragment.show(fm, "Sample Fragment");
     }
 
     @Override
