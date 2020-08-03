@@ -1,7 +1,10 @@
 
-#HaemoType
+# HaemoType
 
-##Project Structure
+## About
+App for blood group typing and detection. This app can help in emergecy identification of blood donors blood groups and clinical history, saving life of accident victims and those in dier need of blood.
+
+## Project Structure
 The project main files are located under *app/src/main/* and are divided in three main folders:
 * assets/ <br/>
 This folder contains
@@ -39,9 +42,24 @@ This is folder contains all the source code for the app. The code is divided in 
 
 Some useful tools used during development:
 
-*
-*
+*   Java - Java SDK is the primary language used in the development of this mobile app
+*   Gradle -
+* Android Studio - Download android studio latest version and run the project in the studio editor
 
+## Behavior Driven Development
+ | Behavior :                                | Input:                                                                     | Output:
+ | :---------------------------------------- | :--------------------------------------------------------------------------| :-------------
+ |  Users Authentication                     | Users login in or create users accounts                                    | Access received or denied
+ | Users Submit form of Blood group          | Inputted Location and Blood group                                          | Location and blood group displayed
+ |                                           |                                                                            |
+ |                                           |                                                                            |
+
+## Repo Link
+https://github.com/jackoyugi/HaemoType
+
+
+## Support and contact details
+contact   info@biofit.co.ke.
 
 <br/>
 Jack Oyugi<br/>
