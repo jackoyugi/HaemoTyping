@@ -29,7 +29,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".activity.DetailActivity"
+            android:name=".fragment.DetailActivity"
             android:label="@string/title_activity_about"
             android:parentActivityName="activity.MainActivity"
             android:theme="@style/AppTheme.NoActionBar">

@@ -30,7 +30,7 @@
 
     <TextView
         android:text="`Donate Blood`"
-        android:textColor="@color/colorAccent"
+        android:textColor="@color/colorPrimaryDarkb"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/headerTextView"
@@ -42,11 +42,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/locationEditText"
-        android:background="@color/colorAccent"
+        android:background="@color/white"
+        android:textColor="@color/colorPrimaryDarkb"
         android:layout_above="@+id/snapButton"
         android:layout_marginBottom="10dp"
         android:padding="5dp"
-        android:hint="Enter Zip Code"
+        android:hint="Enter you location e.g Nairobi"
         android:layout_centerHorizontal="true" />
     <Button
         android:id="@+id/snapButton"
@@ -54,10 +55,10 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:background="@color/colorAccent"
+        android:background="@color/colorPrimarya"
         android:text="Find Your Blood Group"
         android:textAllCaps="false"
-        android:textColor="@color/colorPrimary" />
+        android:textColor="@color/white" />
 
 
 </RelativeLayout>

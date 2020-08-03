@@ -1,17 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/baseLayout">
 
     <TextView
-        android:text="How are you feeling today?"
+        android:text="What blood group are you?"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/MoodLabel"
-        android:textColor="@color/colorPrimaryDark"
+        android:textColor="@color/colorPrimarya"
         android:typeface="monospace"
         android:textStyle="normal|bold"
         android:layout_marginTop="10dp"
@@ -32,44 +31,67 @@
             android:padding="10dp">
 
             <RadioButton
-                android:text="Great"
+                android:text="AB+"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/radioButton1"
                 android:layout_weight="1" />
             <RadioButton
-                android:text="Good"
+                android:text="AB-"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/radioButton2"
                 android:layout_weight="1" />
             <RadioButton
-                android:text="Okay"
+                android:text="O+"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:checked="true"
                 android:id="@+id/radioButton3"
                 android:layout_weight="1" />
             <RadioButton
-                android:text="Meh"
+                android:text="O-"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/radioButton4"
                 android:layout_weight="1" />
             <RadioButton
-                android:text="Sad"
+                android:text="B+"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/radioButton5"
                 android:layout_weight="1" />
+            <RadioButton
+                android:text="B-"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="true"
+                android:id="@+id/radioButton6"
+                android:layout_weight="1" />
+            <RadioButton
+                android:text="A-"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/radioButton7"
+                android:layout_weight="1" />
+            <RadioButton
+                android:text="A+"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/radioButton8"
+                android:layout_weight="1" />
             <Button
                 android:text="Submit"
+                android:textColor="@color/white"
+                android:background="@color/colorAccentc"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/submitButton"/>
 
             <Button
                 android:text="cancel"
+                android:textColor="@color/white"
+                android:background="@color/colorPrimarya"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/cancelButton"/>
