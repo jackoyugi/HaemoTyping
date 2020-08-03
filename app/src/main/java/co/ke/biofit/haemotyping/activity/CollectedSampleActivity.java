@@ -14,11 +14,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import co.ke.biofit.haemotyping.R;
-//import co.ke.biofit.haemotyping.adapter.HaemotypeArrayAdapter;
+import co.ke.biofit.haemotyping.adapter.HaemotypeArrayAdapter;
 
 public class CollectedSampleActivity extends AppCompatActivity {
     public static final String TAG = CollectedSampleActivity.class.getSimpleName();
-//    @BindView(R.id.locationTextView) TextView mLocationTextView;
+    @BindView(R.id.locationTextView) TextView mLocationTextView;
     @BindView(R.id.listView) ListView mListView;
 
     private String[] collectedSample = new String[] {"Jack Winter", "Winnie's Pinches",
@@ -32,7 +32,7 @@ public class CollectedSampleActivity extends AppCompatActivity {
         setContentView(R.layout.activity_collectedsample);
         ButterKnife.bind(this);
 
-//        HaemotypeArrayAdapter adapter = new HaemotypeArrayAdapter(this, android.R.layout.simple_list_item_1, collectedSample, bloodGroup);
+        HaemotypeArrayAdapter adapter = new HaemotypeArrayAdapter(this, android.R.layout.simple_list_item_1, collectedSample, bloodGroup);
         mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
@@ -42,9 +42,9 @@ public class CollectedSampleActivity extends AppCompatActivity {
             }
         });
         Intent intent = getIntent();
-//        String location = intent.getStringExtra("location");
+        String location = intent.getStringExtra("location");
 
-//        mLocationTextView.setText("Here are all the people with blood group() near you: " );
+        mLocationTextView.setText("Here are all the people with blood group() near you: " );
         Log.d("CollectedSampleActivity", "In the onCreate method!");
 
     }

@@ -14,8 +14,10 @@ import butterknife.ButterKnife;
 import co.ke.biofit.haemotyping.R;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+    public static final String TAG = MainActivity.class.getSimpleName();
     @BindView(R.id.snapButton) Button mSnapButton;
     @BindView(R.id.appNameTextView) TextView mAppNameTextView;
+    @BindView(R.id.locationEditText) EditText mLocationEditText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,7 +31,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public void onClick(View view) {
         if(view == mSnapButton) {
+            String location = mLocationEditText.getText().toString();
+            Log.d(TAG, location);
             Intent intent = new Intent(MainActivity.this, CollectedSampleActivity.class);
+            intent.putExtra("location", location);
             startActivity(intent);
         }
 

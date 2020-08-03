@@ -26,5 +26,6 @@
 
     <!-- Backward-compatible version of ?android:attr/buttonBarButtonStyle -->
     <style name="ButtonBarButton" />
+    <style name="NoActionBarTheme" parent="Theme.AppCompat.Light.NoActionBar"></style>
 
 </resources>

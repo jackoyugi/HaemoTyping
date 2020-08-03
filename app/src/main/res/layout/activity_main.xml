@@ -19,6 +19,17 @@
         android:textColor="@color/colorAccent"
         android:textSize="50sp"
         android:textStyle="bold" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/locationEditText"
+        android:background="@color/colorAccent"
+        android:layout_above="@+id/snapButton"
+        android:layout_marginBottom="10dp"
+        android:padding="5dp"
+        android:hint="Enter Zip Code"
+        android:layout_centerHorizontal="true" />
     <Button
         android:id="@+id/snapButton"
         android:layout_width="match_parent"
