@@ -1,10 +1,16 @@
 
-# HaemoType
+# HaemoTyping
 
 ## About
 App for blood group typing and detection. This app can help in emergecy identification of blood donors blood groups and clinical history, saving life of accident victims and those in dier need of blood.
 
 ## Project Structure
+Folk the project from `https://github.com/jackoyugi/HaemoTyping` git repo<li/>
+Clone the project in any folder on your local machine using command `git clone https://github.com/jackoyugi/HaemoTyping `</>
+Open the project in android studio or intelliJ IDE editors </>
+Finally Run the app in android studio emulator
+
+
 The project main files are located under *app/src/main/* and are divided in three main folders:
 * assets/ <br/>
 This folder contains
