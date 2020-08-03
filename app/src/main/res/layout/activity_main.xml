@@ -47,7 +47,7 @@
         android:layout_above="@+id/snapButton"
         android:layout_marginBottom="10dp"
         android:padding="5dp"
-        android:hint="Enter you location e.g Nairobi"
+        android:hint="Enter your location e.g Nairobi"
         android:layout_centerHorizontal="true" />
     <Button
         android:id="@+id/snapButton"
