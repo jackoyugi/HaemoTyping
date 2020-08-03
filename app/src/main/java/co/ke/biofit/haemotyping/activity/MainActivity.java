@@ -1,10 +1,12 @@
 package co.ke.biofit.haemotyping.activity;
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.GridView;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -29,6 +31,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         ButterKnife.bind(this);
 
         mSnapButton.setOnClickListener(this);
+
 
         FragmentManager fm = getSupportFragmentManager();
         HomeFragment HomeFragment = new HomeFragment ();
