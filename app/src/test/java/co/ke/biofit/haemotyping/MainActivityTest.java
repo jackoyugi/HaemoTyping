@@ -3,6 +3,8 @@ package co.ke.biofit.haemotyping;
 import android.content.Intent;
 import android.widget.TextView;
 
+import junit.framework.TestCase;
+
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -13,6 +15,7 @@ import org.robolectric.shadows.ShadowActivity;
 import co.ke.biofit.haemotyping.activity.CollectedSampleActivity;
 import co.ke.biofit.haemotyping.activity.MainActivity;
 
+import static junit.framework.TestCase.assertEquals;
 import static junit.framework.TestCase.assertTrue;
 
 @RunWith(RobolectricTestRunner.class)
@@ -28,7 +31,7 @@ public class MainActivityTest {
     @Test
     public void validateTextViewContent() {
         TextView appNameTextView = activity.findViewById(R.id.appNameTextView);
-        assertTrue("MyRestaurants".equals(appNameTextView.getText().toString()));
+        assertEquals(false, "CollectedSample".equals(appNameTextView.getText().toString()));
     }
 
     @Test

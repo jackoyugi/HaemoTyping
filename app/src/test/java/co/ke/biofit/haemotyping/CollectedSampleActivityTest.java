@@ -26,9 +26,9 @@ public class CollectedSampleActivityTest {
     }
 
     @Test
-    public void restaurantListViewPopulates() {
+    public void CollectedSampleListViewPopulates() {
         assertNotNull(mCollectedListView.getAdapter());
-        assertEquals(mCollectedListView.getAdapter().getCount(), 15);
+        assertEquals(mCollectedListView.getAdapter().getCount(), 12);
     }
 
 }
