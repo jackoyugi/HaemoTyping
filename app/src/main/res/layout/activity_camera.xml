@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context="co.ke.biofit.haemotyping.activity.CameraActivity">
+    tools:context="co.ke.biofit.haemotyping.activity.CollectedSampleActivity">
 
     <FrameLayout
         android:id="@+id/camera_preview"

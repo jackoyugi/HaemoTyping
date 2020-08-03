@@ -33,6 +33,7 @@ public class CollectedSampleActivity extends AppCompatActivity {
         ButterKnife.bind(this);
 
         HaemotypeArrayAdapter adapter = new HaemotypeArrayAdapter(this, android.R.layout.simple_list_item_1, collectedSample, bloodGroup);
+        mListView.setAdapter(adapter);
         mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
@@ -44,7 +45,7 @@ public class CollectedSampleActivity extends AppCompatActivity {
         Intent intent = getIntent();
         String location = intent.getStringExtra("location");
 
-        mLocationTextView.setText("Here are all the people with blood group() near you: " );
+        mLocationTextView.setText("Here are all the people with blood group() near you: " + location );
         Log.d("CollectedSampleActivity", "In the onCreate method!");
 
     }
