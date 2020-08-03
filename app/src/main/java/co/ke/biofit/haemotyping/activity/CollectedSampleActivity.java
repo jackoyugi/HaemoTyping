@@ -47,7 +47,7 @@ public class CollectedSampleActivity extends AppCompatActivity {
         Intent intent = getIntent();
         String location = intent.getStringExtra("location");
 
-        mLocationTextView.setText("Here are all the people with blood group() near you: " + location );
+        mLocationTextView.setText("Here are all the people with blood group (?) near you: " + location );
         Log.d("CollectedSampleActivity", "In the onCreate method!");
 
     }

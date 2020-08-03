@@ -48,6 +48,7 @@
         android:layout_marginBottom="10dp"
         android:padding="5dp"
         android:hint="Enter your location e.g Nairobi"
+        android:textStyle="italic"
         android:layout_centerHorizontal="true" />
     <Button
         android:id="@+id/snapButton"
@@ -58,6 +59,8 @@
         android:background="@color/colorPrimarya"
         android:text="Find Your Blood Group"
         android:textAllCaps="false"
+        android:textSize="30sp"
+        android:textStyle="bold"
         android:textColor="@color/white" />
 
 
