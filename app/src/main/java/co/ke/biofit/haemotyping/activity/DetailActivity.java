@@ -1,4 +1,4 @@
-package co.ke.biofit.haemotyping.fragment;
+package co.ke.biofit.haemotyping.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 

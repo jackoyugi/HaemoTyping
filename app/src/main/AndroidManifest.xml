@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="co.ke.biofit.haemotyping">
 
+    <uses-permission android:name="android.permission.INTERNET"/>
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -29,7 +31,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".fragment.DetailActivity"
+            android:name=".activity.AboutActivity"
             android:label="@string/title_activity_about"
             android:parentActivityName="activity.MainActivity"
             android:theme="@style/AppTheme.NoActionBar">
