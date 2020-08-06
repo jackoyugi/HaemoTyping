@@ -1,4 +1,4 @@
-package co.ke.biofit.haemotyping.activity;
+package co.ke.biofit.haemotyping.ui;
 
 import android.os.Bundle;
 import androidx.appcompat.widget.Toolbar;

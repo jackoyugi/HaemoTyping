@@ -3,8 +3,6 @@ package co.ke.biofit.haemotyping;
 import android.content.Intent;
 import android.widget.TextView;
 
-import junit.framework.TestCase;
-
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -12,8 +10,8 @@ import org.robolectric.Robolectric;
 import org.robolectric.RobolectricTestRunner;
 import org.robolectric.shadows.ShadowActivity;
 
-import co.ke.biofit.haemotyping.activity.CollectedSampleActivity;
-import co.ke.biofit.haemotyping.activity.MainActivity;
+import co.ke.biofit.haemotyping.ui.CollectedSampleActivity;
+import co.ke.biofit.haemotyping.ui.MainActivity;
 
 import static junit.framework.TestCase.assertEquals;
 import static junit.framework.TestCase.assertTrue;

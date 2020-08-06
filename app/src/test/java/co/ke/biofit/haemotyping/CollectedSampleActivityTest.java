@@ -1,6 +1,5 @@
 package co.ke.biofit.haemotyping;
 
-import android.app.Activity;
 import android.widget.ListView;
 
 import org.junit.Before;
@@ -9,7 +8,7 @@ import org.junit.runner.RunWith;
 import org.robolectric.Robolectric;
 import org.robolectric.RobolectricTestRunner;
 
-import co.ke.biofit.haemotyping.activity.CollectedSampleActivity;
+import co.ke.biofit.haemotyping.ui.CollectedSampleActivity;
 
 import static junit.framework.TestCase.assertEquals;
 import static junit.framework.TestCase.assertNotNull;

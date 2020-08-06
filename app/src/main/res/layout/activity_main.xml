@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@color/black"
     android:padding="8dp"
-    tools:context="co.ke.biofit.haemotyping.activity.MainActivity">
+    tools:context="co.ke.biofit.haemotyping.ui.MainActivity">
 
     <TextView
         android:id="@+id/appNameTextView"

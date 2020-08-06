@@ -1,12 +1,10 @@
-package co.ke.biofit.haemotyping.activity;
+package co.ke.biofit.haemotyping.ui;
 
 import android.content.Intent;
-import android.graphics.Typeface;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.GridView;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -16,7 +14,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import co.ke.biofit.haemotyping.R;
+import co.ke.biofit.haemotyping.activity.BetterDoctorSearchResponse;
 import co.ke.biofit.haemotyping.adapter.HaemotypeArrayAdapter;
+import co.ke.biofit.haemotyping.service.BetterDoctorApi;
+import co.ke.biofit.haemotyping.service.BetterDoctorClient;
+import retrofit2.Call;
 
 public class CollectedSampleActivity extends AppCompatActivity {
     public static final String TAG = CollectedSampleActivity.class.getSimpleName();
@@ -34,6 +36,11 @@ public class CollectedSampleActivity extends AppCompatActivity {
         setContentView(R.layout.activity_collectedsample);
         ButterKnife.bind(this);
 
+        BetterDoctorApi client = BetterDoctorClient.getClient();
+
+        String location = null;
+        Call<BetterDoctorSearchResponse> call = client.getDoctors(location, "doctors");
+
         HaemotypeArrayAdapter adapter = new HaemotypeArrayAdapter(this, android.R.layout.simple_list_item_1, collectedSample, bloodGroup);
         mListView.setAdapter(adapter);
         mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -45,9 +52,9 @@ public class CollectedSampleActivity extends AppCompatActivity {
             }
         });
         Intent intent = getIntent();
-        String location = intent.getStringExtra("location");
+        location = intent.getStringExtra("location");
 
-        mLocationTextView.setText("Here are all the people with blood group (?) near you: " + location );
+        mLocationTextView.setText("Here are all the people with blood group (?) near you: " + location);
         Log.d("CollectedSampleActivity", "In the onCreate method!");
 
     }

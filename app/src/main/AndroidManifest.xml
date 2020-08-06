@@ -13,16 +13,16 @@
         android:theme="@style/AppTheme">
 
         <activity
-            android:name=".activity.CollectedSampleActivity"
+            android:name=".ui.CollectedSampleActivity"
             android:label="@string/title_activity_collectedsample">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="co.ke.biofit.haemotyping.activity.MainActivity">
+                android:value="co.ke.biofit.haemotyping.ui.MainActivity">
             </meta-data>
         </activity>
 
         <activity
-            android:name=".activity.MainActivity"
+            android:name=".ui.MainActivity"
             android:theme="@style/NoActionBarTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -31,13 +31,13 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".activity.AboutActivity"
+            android:name=".ui.AboutActivity"
             android:label="@string/title_activity_about"
-            android:parentActivityName="activity.MainActivity"
+            android:parentActivityName=".ui.MainActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="co.ke.biofit.haemotyping.activity.MainActivity" />
+                android:value="co.ke.biofit.haemotyping.ui.MainActivity" />
         </activity>
     </application>
 

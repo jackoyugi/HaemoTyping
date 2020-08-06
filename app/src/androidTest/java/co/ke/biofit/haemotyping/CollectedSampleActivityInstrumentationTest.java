@@ -9,7 +9,7 @@ import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
-import co.ke.biofit.haemotyping.activity.CollectedSampleActivity;
+import co.ke.biofit.haemotyping.ui.CollectedSampleActivity;
 
 import static androidx.test.espresso.Espresso.onData;
 import static androidx.test.espresso.Espresso.onView;
