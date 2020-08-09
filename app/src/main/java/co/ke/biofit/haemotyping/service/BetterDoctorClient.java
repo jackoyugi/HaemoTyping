@@ -2,6 +2,7 @@ package co.ke.biofit.haemotyping.service;
 
 import java.io.IOException;
 
+import co.ke.biofit.haemotyping.service.BetterDoctorApi;
 import okhttp3.Interceptor;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;

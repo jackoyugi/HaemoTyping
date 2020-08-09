@@ -2,13 +2,18 @@ package co.ke.biofit.haemotyping.adapter;
 
 import android.content.Context;
 import android.graphics.Typeface;
+import android.util.Log;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 
 import butterknife.BindView;
 import co.ke.biofit.haemotyping.R;
+import co.ke.biofit.haemotyping.activity.BetterDoctorSearchResponse;
+import co.ke.biofit.haemotyping.ui.MainActivity;
+import retrofit2.Call;
 
 public class HaemotypeArrayAdapter extends ArrayAdapter {
+    public static final String TAG = HaemotypeArrayAdapter.class.getSimpleName();
 
     private Context mContext;
     private String[] mCollectedSample;
@@ -31,5 +36,9 @@ public class HaemotypeArrayAdapter extends ArrayAdapter {
         public int getCount() {
             return mCollectedSample.length;
         }
+
+    public void onFailure(Call<BetterDoctorSearchResponse> call, Throwable t) {
+        Log.e(TAG, "onFailure: ", t);
+    }
 
 }

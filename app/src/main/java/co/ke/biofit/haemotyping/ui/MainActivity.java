@@ -13,7 +13,9 @@ import androidx.fragment.app.FragmentManager;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import co.ke.biofit.haemotyping.R;
+import co.ke.biofit.haemotyping.activity.BetterDoctorSearchResponse;
 import co.ke.biofit.haemotyping.fragment.HomeFragment;
+import retrofit2.Call;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     public static final String TAG = MainActivity.class.getSimpleName();
@@ -45,5 +47,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             startActivity(intent);
         }
 
+    }
+    public void onFailure(Call<BetterDoctorSearchResponse> call, Throwable t) {
+        Log.e(TAG, "onFailure: ", t);
     }
 }
