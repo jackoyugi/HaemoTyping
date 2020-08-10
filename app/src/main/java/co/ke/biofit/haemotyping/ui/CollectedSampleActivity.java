@@ -17,12 +17,11 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import co.ke.biofit.haemotyping.R;
-import co.ke.biofit.haemotyping.activity.BetterDoctorSearchResponse;
-import co.ke.biofit.haemotyping.activity.Datum;
-import co.ke.biofit.haemotyping.activity.Specialty_;
+import co.ke.biofit.haemotyping.activity.MakeUpSearchResponse;
+import co.ke.biofit.haemotyping.activity.ProductColor;
 import co.ke.biofit.haemotyping.adapter.HaemotypeArrayAdapter;
-import co.ke.biofit.haemotyping.service.BetterDoctorApi;
-import co.ke.biofit.haemotyping.service.BetterDoctorClient;
+import co.ke.biofit.haemotyping.service.MakeUpApi;
+import co.ke.biofit.haemotyping.service.MakeUpClient;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -34,7 +33,6 @@ public class CollectedSampleActivity extends AppCompatActivity {
 
 //    private String[] collectedSample = new String[] {"Jack Winter", "Winnie's Pinches",
 //            "Seeds of Gold", "The Pupper", "Luc Lac", "Sweet Basil", "Grace Butt", "Cate Jitter", "The Movers", "We the Winner", "Dont Ask", "Am Here"};
-//
 //    private String[] bloodGroup = new String[] {"O+/Rh+", "A-/Rh-", "B+/Rh+", "A+/Rh-", "AB-/Rh-", "AB+/Rh+", "O+/Rh+", "A+", "AB-", "O+", "B+", "B-"};
 
     @Override
@@ -44,30 +42,28 @@ public class CollectedSampleActivity extends AppCompatActivity {
         ButterKnife.bind(this);
 
         Intent intent = getIntent();
-        String location;
-        location = intent.getStringExtra("location");
 
-        BetterDoctorApi client = BetterDoctorClient.getClient();
+        String location = intent.getStringExtra("brand");
 
+        MakeUpApi client = MakeUpClient.getClient();
 
+        Call<MakeUpSearchResponse> call = client.getDoctors(location, "doctors");
 
-        Call<BetterDoctorSearchResponse> call = client.getDoctors(location, "doctors");
-
-        call.enqueue(new Callback<BetterDoctorSearchResponse>() {
+        call.enqueue(new Callback<MakeUpSearchResponse>() {
             @Override
-            public void onResponse(Call<BetterDoctorSearchResponse> call, Response<BetterDoctorSearchResponse> response) {
+            public void onResponse(Call<MakeUpSearchResponse> call, Response<MakeUpSearchResponse> response) {
                 if (response.isSuccessful()) {
-                    List<Datum> betterDoctorList = response.body().getData();
+                    List<ProductColor> betterDoctorList = response.body().getProductColors();
                     String[] doctors = new String[betterDoctorList.size()];
                     String[] specialties = new String[betterDoctorList.size()];
 
                     for (int i = 0; i < doctors.length; i++){
-                        doctors[i] = String.valueOf(betterDoctorList.get(i).getProfile());
+                        doctors[i] = String.valueOf(betterDoctorList.get(i).getHexValue());
                     }
 
                     for (int i = 0; i < specialties.length; i++) {
-                        Specialty_ specialty = betterDoctorList.get(i).getSpecialties().get(0);
-                        specialties[i] = specialty.getName();
+                        ProductColor colourName = betterDoctorList.get(i).getColourName();
+                        specialties[i] = String.valueOf(colourName.getColourName());
                     }
 
                     ArrayAdapter adapter
@@ -78,10 +74,11 @@ public class CollectedSampleActivity extends AppCompatActivity {
             }
 
             @Override
-            public void onFailure(Call<BetterDoctorSearchResponse> call, Throwable t) {
+            public void onFailure(Call<MakeUpSearchResponse> call, Throwable t) {
 
             }
         });
+
 
 //        HaemotypeArrayAdapter adapter = new HaemotypeArrayAdapter(this, android.R.layout.simple_list_item_1, collectedSample, bloodGroup);
 //        mListView.setAdapter(adapter);
@@ -97,9 +94,11 @@ public class CollectedSampleActivity extends AppCompatActivity {
         mLocationTextView.setText("Here are all the people with blood group (?) near you: " + location);
         Log.d("CollectedSampleActivity", "In the onCreate method!");
 
+
+
     }
 
-    public void onFailure(Call<BetterDoctorSearchResponse> call, Throwable t) {
+    public void onFailure(Call<MakeUpSearchResponse> call, Throwable t) {
         Log.e(TAG, "onFailure: ", t);
     }
 

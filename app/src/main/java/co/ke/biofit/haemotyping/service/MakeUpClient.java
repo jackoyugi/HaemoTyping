@@ -2,7 +2,6 @@ package co.ke.biofit.haemotyping.service;
 
 import java.io.IOException;
 
-import co.ke.biofit.haemotyping.service.BetterDoctorApi;
 import okhttp3.Interceptor;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
@@ -13,11 +12,11 @@ import retrofit2.converter.gson.GsonConverterFactory;
 import static co.ke.biofit.haemotyping.Constants.BETTERDOCTOR_API_KEY;
 import static co.ke.biofit.haemotyping.Constants.BETTERDOCTOR_BASE_URL;
 
-public class BetterDoctorClient {
+public class MakeUpClient {
 
     private static Retrofit retrofit = null;
 
-    public static BetterDoctorApi getClient() {
+    public static MakeUpApi getClient() {
 
         if (retrofit == null) {
             OkHttpClient okHttpClient = new OkHttpClient.Builder()
@@ -39,6 +38,6 @@ public class BetterDoctorClient {
                     .build();
         }
 
-        return retrofit.create(BetterDoctorApi.class);
+        return retrofit.create(MakeUpApi.class);
     }
 }
