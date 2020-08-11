@@ -41,10 +41,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public void onClick(View view) {
         if(view == mSnapButton) {
-            String location = mLocationEditText.getText().toString();
-            Log.d(TAG, location);
+            String brand = mLocationEditText.getText().toString();
+            Log.d(TAG, brand);
             Intent intent = new Intent(MainActivity.this, CollectedSampleActivity.class);
-            intent.putExtra("location", location);
+            intent.putExtra("brand", brand);
             startActivity(intent);
         }
 

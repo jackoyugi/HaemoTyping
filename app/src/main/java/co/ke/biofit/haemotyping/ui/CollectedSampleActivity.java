@@ -35,23 +35,32 @@ public class CollectedSampleActivity extends AppCompatActivity {
     @BindView(R.id.progressBar) ProgressBar mProgressBar;
 
 
-//    private String[] collectedSample = new String[] {"Jack Winter", "Winnie's Pinches",
-//            "Seeds of Gold", "The Pupper", "Luc Lac", "Sweet Basil", "Grace Butt", "Cate Jitter", "The Movers", "We the Winner", "Dont Ask", "Am Here"};
-//    private String[] bloodGroup = new String[] {"O+/Rh+", "A-/Rh-", "B+/Rh+", "A+/Rh-", "AB-/Rh-", "AB+/Rh+", "O+/Rh+", "A+", "AB-", "O+", "B+", "B-"};
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_collectedsample);
         ButterKnife.bind(this);
 
+        mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                String collectedSample = ((TextView) view).getText().toString();
+                Log.v("CollectedSampleActivity", "In the onItemClickListener!");
+                Toast.makeText(CollectedSampleActivity.this, collectedSample, Toast.LENGTH_LONG).show();
+            }
+        });
+
+        mLocationTextView.setText("Here are all the people with blood group (?) near you: " + brand);
+        Log.d("CollectedSampleActivity", "In the onCreate method!");
+
+
         Intent intent = getIntent();
 
-        String location = intent.getStringExtra("covergirl");
+        String brand = intent.getStringExtra("covergirl");
 
         MakeUpApi client = MakeUpClient.getClient();
 
-        Call<MakeUpSearchResponse> call = client.getDoctors(location, "lipstick");
+        Call<MakeUpSearchResponse> call = client.getDoctors(brand, "lipstick");
 
         call.enqueue(new Callback<MakeUpSearchResponse>() {
             @Override
@@ -70,35 +79,21 @@ public class CollectedSampleActivity extends AppCompatActivity {
                         specialties[i] = String.valueOf(colourName.getClass());
                     }
 
-                    ArrayAdapter adapter
-                            = new HaemotypeArrayAdapter(CollectedSampleActivity.this, android.R.layout.simple_list_item_1, doctors, specialties);
+                    ArrayAdapter adapter = new HaemotypeArrayAdapter(CollectedSampleActivity.this, android.R.layout.simple_list_item_1, doctors, specialties);
                     mListView.setAdapter(adapter);
 
+                    showRestaurants();
+                } else {
+                    showUnsuccessfulMessage();
                 }
             }
 
             @Override
             public void onFailure(Call<MakeUpSearchResponse> call, Throwable t) {
-
-            }
+                hideProgressBar();
+                showFailureMessage();
+                Log.e(TAG, "onFailure: ", t);            }
         });
-
-
-//        HaemotypeArrayAdapter adapter = new HaemotypeArrayAdapter(this, android.R.layout.simple_list_item_1, collectedSample, bloodGroup);
-//        mListView.setAdapter(adapter);
-        mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                String collectedSample = ((TextView) view).getText().toString();
-                Log.v("CollectedSampleActivity", "In the onItemClickListener!");
-                Toast.makeText(CollectedSampleActivity.this, collectedSample, Toast.LENGTH_LONG).show();
-            }
-        });
-
-        mLocationTextView.setText("Here are all the people with blood group (?) near you: " + location);
-        Log.d("CollectedSampleActivity", "In the onCreate method!");
-
-
 
     }
     private void showFailureMessage() {
@@ -118,12 +113,6 @@ public class CollectedSampleActivity extends AppCompatActivity {
 
     private void hideProgressBar() {
         mProgressBar.setVisibility(View.GONE);
-    }
-
-    public void onFailure(Call<MakeUpSearchResponse> call, Throwable t) {
-        Log.e(TAG, "onFailure: ", t);
-        hideProgressBar();
-        showFailureMessage();
     }
 
 
