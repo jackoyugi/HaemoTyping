@@ -50,13 +50,12 @@ public class CollectedSampleActivity extends AppCompatActivity {
             }
         });
 
-        mLocationTextView.setText("Here are all the people with blood group (?) near you: " + brand);
-        Log.d("CollectedSampleActivity", "In the onCreate method!");
-
 
         Intent intent = getIntent();
 
         String brand = intent.getStringExtra("covergirl");
+        mLocationTextView.setText("Here are all the people with blood group (?) near you: " + brand);
+        Log.d("CollectedSampleActivity", "In the onCreate method!");
 
         MakeUpApi client = MakeUpClient.getClient();
 
@@ -70,7 +69,7 @@ public class CollectedSampleActivity extends AppCompatActivity {
                     String[] doctors = new String[betterDoctorList.size()];
                     String[] specialties = new String[betterDoctorList.size()];
 
-                    for (int i = 0; i < doctors.length; i++){
+                    for (int i = 0; i < doctors.length; i++) {
                         doctors[i] = String.valueOf(betterDoctorList.get(i).getHexValue());
                     }
 
@@ -92,7 +91,8 @@ public class CollectedSampleActivity extends AppCompatActivity {
             public void onFailure(Call<MakeUpSearchResponse> call, Throwable t) {
                 hideProgressBar();
                 showFailureMessage();
-                Log.e(TAG, "onFailure: ", t);            }
+                Log.e(TAG, "onFailure: ", t);
+            }
         });
 
     }
