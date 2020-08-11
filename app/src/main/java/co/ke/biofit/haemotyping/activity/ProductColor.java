@@ -39,7 +39,7 @@ public class ProductColor {
         this.hexValue = hexValue;
     }
 
-    public ProductColor getColourName() {
+    public String getColourName() {
         return colourName;
     }
 

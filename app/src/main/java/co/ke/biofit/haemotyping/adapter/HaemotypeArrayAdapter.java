@@ -8,7 +8,8 @@ import android.widget.EditText;
 
 import butterknife.BindView;
 import co.ke.biofit.haemotyping.R;
-import co.ke.biofit.haemotyping.activity.BetterDoctorSearchResponse;
+
+import co.ke.biofit.haemotyping.activity.MakeUpSearchResponse;
 import co.ke.biofit.haemotyping.ui.MainActivity;
 import retrofit2.Call;
 
@@ -37,7 +38,7 @@ public class HaemotypeArrayAdapter extends ArrayAdapter {
             return mCollectedSample.length;
         }
 
-    public void onFailure(Call<BetterDoctorSearchResponse> call, Throwable t) {
+    public void onFailure(Call<MakeUpSearchResponse> call, Throwable t) {
         Log.e(TAG, "onFailure: ", t);
     }
 

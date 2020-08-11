@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -30,6 +31,9 @@ public class CollectedSampleActivity extends AppCompatActivity {
     public static final String TAG = CollectedSampleActivity.class.getSimpleName();
     @BindView(R.id.locationTextView) TextView mLocationTextView;
     @BindView(R.id.listView) ListView mListView;
+    @BindView(R.id.errorTextView) TextView mErrorTextView;
+    @BindView(R.id.progressBar) ProgressBar mProgressBar;
+
 
 //    private String[] collectedSample = new String[] {"Jack Winter", "Winnie's Pinches",
 //            "Seeds of Gold", "The Pupper", "Luc Lac", "Sweet Basil", "Grace Butt", "Cate Jitter", "The Movers", "We the Winner", "Dont Ask", "Am Here"};
@@ -43,11 +47,11 @@ public class CollectedSampleActivity extends AppCompatActivity {
 
         Intent intent = getIntent();
 
-        String location = intent.getStringExtra("brand");
+        String location = intent.getStringExtra("covergirl");
 
         MakeUpApi client = MakeUpClient.getClient();
 
-        Call<MakeUpSearchResponse> call = client.getDoctors(location, "doctors");
+        Call<MakeUpSearchResponse> call = client.getDoctors(location, "lipstick");
 
         call.enqueue(new Callback<MakeUpSearchResponse>() {
             @Override
@@ -62,8 +66,8 @@ public class CollectedSampleActivity extends AppCompatActivity {
                     }
 
                     for (int i = 0; i < specialties.length; i++) {
-                        ProductColor colourName = betterDoctorList.get(i).getColourName();
-                        specialties[i] = String.valueOf(colourName.getColourName());
+                        String colourName = betterDoctorList.get(i).getColourName();
+                        specialties[i] = String.valueOf(colourName.getClass());
                     }
 
                     ArrayAdapter adapter
@@ -97,9 +101,29 @@ public class CollectedSampleActivity extends AppCompatActivity {
 
 
     }
+    private void showFailureMessage() {
+        mErrorTextView.setText("Something went wrong. Please check your Internet connection and try again later");
+        mErrorTextView.setVisibility(View.VISIBLE);
+    }
+
+    private void showUnsuccessfulMessage() {
+        mErrorTextView.setText("Something went wrong. Please try again later");
+        mErrorTextView.setVisibility(View.VISIBLE);
+    }
+
+    private void showRestaurants() {
+        mListView.setVisibility(View.VISIBLE);
+        mLocationTextView.setVisibility(View.VISIBLE);
+    }
+
+    private void hideProgressBar() {
+        mProgressBar.setVisibility(View.GONE);
+    }
 
     public void onFailure(Call<MakeUpSearchResponse> call, Throwable t) {
         Log.e(TAG, "onFailure: ", t);
+        hideProgressBar();
+        showFailureMessage();
     }
 
 
