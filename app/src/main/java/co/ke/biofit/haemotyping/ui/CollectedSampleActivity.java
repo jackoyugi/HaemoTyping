@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -19,11 +18,7 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import co.ke.biofit.haemotyping.R;
-import co.ke.biofit.haemotyping.activity.Category;
 import co.ke.biofit.haemotyping.activity.MakeUpSearchResponse;
-import co.ke.biofit.haemotyping.activity.MakeUpSearchResponsee;
-import co.ke.biofit.haemotyping.activity.ProductColor;
-import co.ke.biofit.haemotyping.adapter.HaemotypeArrayAdapter;
 import co.ke.biofit.haemotyping.service.MakeUpApi;
 
 import retrofit2.Call;
@@ -90,7 +85,7 @@ public class CollectedSampleActivity extends AppCompatActivity {
                 Toast.makeText(CollectedSampleActivity.this, "Failed", Toast.LENGTH_SHORT).show();
 //                hideProgressBar();
 //                showFailureMessage();
-//                Log.e(TAG, "onFailure: ", t);
+                Log.e(TAG, "onFailure: ", t);
             }
         });
 
