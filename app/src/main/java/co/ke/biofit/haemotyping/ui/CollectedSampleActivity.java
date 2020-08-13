@@ -18,7 +18,9 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import co.ke.biofit.haemotyping.R;
+import co.ke.biofit.haemotyping.activity.Category;
 import co.ke.biofit.haemotyping.activity.MakeUpSearchResponse;
+import co.ke.biofit.haemotyping.activity.MakeUpSearchResponsee;
 import co.ke.biofit.haemotyping.activity.ProductColor;
 import co.ke.biofit.haemotyping.adapter.HaemotypeArrayAdapter;
 import co.ke.biofit.haemotyping.service.MakeUpApi;
@@ -50,45 +52,28 @@ public class CollectedSampleActivity extends AppCompatActivity {
             }
         });
 
-
         Intent intent = getIntent();
 
-        String brand = intent.getStringExtra("covergirl");
+        String brand = intent.getStringExtra("location");
         mLocationTextView.setText("Here are all the people with blood group (?) near you: " + brand);
-        Log.d("CollectedSampleActivity", "In the onCreate method!");
+
+
 
         MakeUpApi client = MakeUpClient.getClient();
 
-        Call<MakeUpSearchResponse> call = client.getDoctors(brand, "lipstick");
+        Call <List<MakeUpSearchResponse>> call = client.getProducts();
 
-        call.enqueue(new Callback<MakeUpSearchResponse>() {
+        call.enqueue(new Callback<List<MakeUpSearchResponse>>() {
             @Override
-            public void onResponse(Call<MakeUpSearchResponse> call, Response<MakeUpSearchResponse> response) {
-                if (response.isSuccessful()) {
-                    List<ProductColor> betterDoctorList = response.body().getProductColors();
-                    String[] doctors = new String[betterDoctorList.size()];
-                    String[] specialties = new String[betterDoctorList.size()];
+            public void onResponse(Call<List<MakeUpSearchResponse>> call, Response<List<MakeUpSearchResponse>> response) {
+                Toast.makeText(CollectedSampleActivity.this, "Success", Toast.LENGTH_SHORT).show();
 
-                    for (int i = 0; i < doctors.length; i++) {
-                        doctors[i] = String.valueOf(betterDoctorList.get(i).getHexValue());
-                    }
-
-                    for (int i = 0; i < specialties.length; i++) {
-                        String colourName = betterDoctorList.get(i).getColourName();
-                        specialties[i] = String.valueOf(colourName.getClass());
-                    }
-
-                    ArrayAdapter adapter = new HaemotypeArrayAdapter(CollectedSampleActivity.this, android.R.layout.simple_list_item_1, doctors, specialties);
-                    mListView.setAdapter(adapter);
-
-                    showRestaurants();
-                } else {
-                    showUnsuccessfulMessage();
-                }
             }
 
+
             @Override
-            public void onFailure(Call<MakeUpSearchResponse> call, Throwable t) {
+            public void onFailure(Call<List<MakeUpSearchResponse>> call, Throwable t) {
+                Toast.makeText(CollectedSampleActivity.this, "Failed", Toast.LENGTH_SHORT).show();
                 hideProgressBar();
                 showFailureMessage();
                 Log.e(TAG, "onFailure: ", t);
@@ -106,7 +91,7 @@ public class CollectedSampleActivity extends AppCompatActivity {
         mErrorTextView.setVisibility(View.VISIBLE);
     }
 
-    private void showRestaurants() {
+    private void showProducts() {
         mListView.setVisibility(View.VISIBLE);
         mLocationTextView.setVisibility(View.VISIBLE);
     }

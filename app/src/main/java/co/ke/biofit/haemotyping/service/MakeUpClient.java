@@ -10,6 +10,7 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 //import static co.ke.biofit.haemotyping.Constants.BETTERDOCTOR_API_KEY;
+
 import static co.ke.biofit.haemotyping.Constants.BETTERDOCTOR_BASE_URL;
 
 public class MakeUpClient {

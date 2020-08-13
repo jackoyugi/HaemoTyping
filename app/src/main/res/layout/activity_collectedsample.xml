@@ -33,7 +33,8 @@
         android:layout_width="match_parent"
         android:layout_height="352dp"
         android:scaleType="centerCrop"
-        android:src="@drawable/blood" />
+        android:src="@drawable/blood"
+        android:visibility="gone"/>
 
     <ProgressBar
         android:id="@+id/progressBar"

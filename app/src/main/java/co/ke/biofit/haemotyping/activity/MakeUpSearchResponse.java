@@ -39,7 +39,7 @@ public class MakeUpSearchResponse {
     private String description;
     @SerializedName("rating")
     @Expose
-    private Object rating;
+    private Double rating;
     @SerializedName("category")
     @Expose
     private Object category;
@@ -94,7 +94,7 @@ public class MakeUpSearchResponse {
      * @param productType
      * @param updatedAt
      */
-    public MakeUpSearchResponse(Integer id, String brand, String name, String price, Object priceSign, Object currency, String imageLink, String productLink, String websiteLink, String description, Object rating, Object category, String productType, List<Object> tagList, String createdAt, String updatedAt, String productApiUrl, String apiFeaturedImage, List<ProductColor> productColors) {
+    public MakeUpSearchResponse(Integer id, String brand, String name, String price, Object priceSign, Object currency, String imageLink, String productLink, String websiteLink, String description, Double rating, Object category, String productType, List<Object> tagList, String createdAt, String updatedAt, String productApiUrl, String apiFeaturedImage, List<ProductColor> productColors) {
         super();
         this.id = id;
         this.brand = brand;
@@ -106,7 +106,7 @@ public class MakeUpSearchResponse {
         this.productLink = productLink;
         this.websiteLink = websiteLink;
         this.description = description;
-        this.rating = rating;
+        this.rating =  rating;
         this.category = category;
         this.productType = productType;
         this.tagList = tagList;
@@ -197,11 +197,11 @@ public class MakeUpSearchResponse {
         this.description = description;
     }
 
-    public Object getRating() {
+    public Double getRating() {
         return rating;
     }
 
-    public void setRating(Object rating) {
+    public void setRating(Double rating) {
         this.rating = rating;
     }
 
