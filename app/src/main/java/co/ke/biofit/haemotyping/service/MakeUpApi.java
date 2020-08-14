@@ -8,8 +8,9 @@ import retrofit2.http.GET;
 import retrofit2.http.Query;
 
 public interface MakeUpApi {
-    @GET("products.json")
+    @GET("?brand=covergirl")
     Call<List<MakeUpSearchResponse>> getProducts(
-
+            @Query("location") String location,
+            @Query("term") String term
     );
 }

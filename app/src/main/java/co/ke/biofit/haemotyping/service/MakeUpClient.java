@@ -1,44 +1,40 @@
-//package co.ke.biofit.haemotyping.service;
-//
-//import java.io.IOException;
-//
-//import okhttp3.Interceptor;
-//import okhttp3.OkHttpClient;
-//import okhttp3.Request;
-//import okhttp3.Response;
-//import retrofit2.Retrofit;
-//import retrofit2.converter.gson.GsonConverterFactory;
-//
-////import static co.ke.biofit.haemotyping.Constants.BETTERDOCTOR_API_KEY;
-//
-//import static co.ke.biofit.haemotyping.Constants.BETTERDOCTOR_BASE_URL;
-//
-//public class MakeUpClient {
-//
-//    private static Retrofit retrofit = null;
-//
-//    public static MakeUpApi getClient() {
-//
-//        if (retrofit == null) {
-//            OkHttpClient okHttpClient = new OkHttpClient.Builder()
-//                    .addInterceptor(new Interceptor() {
-//                        @Override
-//                        public Response intercept(Chain chain) throws IOException {
-//                            Request newRequest  = chain.request().newBuilder()
-////                                    .addHeader("Authorization", BETTERDOCTOR_API_KEY)
-//                                    .build();
-//                            return chain.proceed(newRequest);
-//                        }
-//                    })
-//                    .build();
-//
-//            retrofit = new Retrofit.Builder()
-//                    .baseUrl("https://makeup-api.herokuapp.com/api/v1/")
-//                    .client(okHttpClient)
-//                    .addConverterFactory(GsonConverterFactory.create())
-//                    .build();
-//        }
-//
-//        return retrofit.create(MakeUpApi.class);
-//    }
-//}
+package co.ke.biofit.haemotyping.service;
+
+import java.io.IOException;
+
+import okhttp3.Interceptor;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
+import static co.ke.biofit.haemotyping.Constants.BETTERDOCTOR_BASE_URL;
+
+public class MakeUpClient {
+
+    private static Retrofit retrofit = null;
+
+    public static MakeUpApi getClient() {
+
+        if (retrofit == null) {
+            OkHttpClient okHttpClient = new OkHttpClient.Builder()
+                    .addInterceptor(new Interceptor() {
+                        @Override
+                        public Response intercept(Chain chain) throws IOException {
+                            Request newRequest  = chain.request().newBuilder()
+                                    .build();
+                            return chain.proceed(newRequest);
+                        }
+                    })
+                    .build();
+
+            retrofit = new Retrofit.Builder()
+                    .baseUrl(BETTERDOCTOR_BASE_URL)
+                    .client(okHttpClient)
+                    .addConverterFactory(GsonConverterFactory.create())
+                    .build();
+        }
+
+        return retrofit.create(MakeUpApi.class);
+    }
+}

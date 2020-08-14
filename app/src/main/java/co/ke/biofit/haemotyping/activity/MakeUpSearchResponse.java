@@ -5,6 +5,9 @@ import java.util.List;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
+import org.parceler.Parcel;
+
+
 public class MakeUpSearchResponse {
 
     @SerializedName("id")
@@ -73,28 +76,11 @@ public class MakeUpSearchResponse {
     }
 
     /**
-     * 
-     * @param apiFeaturedImage
-     * @param websiteLink
-     * @param productColors
-     * @param rating
-     * @param description
-     * @param priceSign
-     * @param tagList
-     * @param imageLink
-     * @param createdAt
-     * @param price
-     * @param name
-     * @param productApiUrl
-     * @param currency
-     * @param productLink
-     * @param id
-     * @param category
      * @param brand
-     * @param productType
-     * @param updatedAt
+     * @param name
+     * @param price
      */
-    public MakeUpSearchResponse(Integer id, String brand, String name, String price, Object priceSign, Object currency, String imageLink, String productLink, String websiteLink, String description, Double rating, Object category, String productType, List<Object> tagList, String createdAt, String updatedAt, String productApiUrl, String apiFeaturedImage, List<ProductColor> productColors) {
+    public MakeUpSearchResponse(String brand, String name, String price) {
         super();
         this.id = id;
         this.brand = brand;
@@ -116,6 +102,10 @@ public class MakeUpSearchResponse {
         this.apiFeaturedImage = apiFeaturedImage;
         this.productColors = productColors;
     }
+//    @Override
+//    public String toString() {
+//        return String.format("%s, %s, %s %s", this.name, this.brand, this.apiFeaturedImage, this.priceSign);
+//    }
 
     public Integer getId() {
         return id;
@@ -268,5 +258,6 @@ public class MakeUpSearchResponse {
     public void setProductColors(List<ProductColor> productColors) {
         this.productColors = productColors;
     }
+
 
 }

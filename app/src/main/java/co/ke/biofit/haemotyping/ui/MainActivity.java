@@ -16,6 +16,8 @@ import co.ke.biofit.haemotyping.R;
 
 import co.ke.biofit.haemotyping.activity.MakeUpSearchResponse;
 import co.ke.biofit.haemotyping.fragment.HomeFragment;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
 import retrofit2.Call;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
@@ -46,9 +48,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             Intent intent = new Intent(MainActivity.this, CollectedSampleActivity.class);
             intent.putExtra("brand", brand);
             startActivity(intent);
+
         }
 
     }
+
+
     public void onFailure(Call<MakeUpSearchResponse> call, Throwable t) {
         Log.e(TAG, "onFailure: ", t);
     }

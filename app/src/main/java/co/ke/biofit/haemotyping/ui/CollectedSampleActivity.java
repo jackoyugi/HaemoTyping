@@ -11,6 +11,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,8 +21,12 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import co.ke.biofit.haemotyping.R;
 import co.ke.biofit.haemotyping.activity.MakeUpSearchResponse;
+import co.ke.biofit.haemotyping.adapter.MakeUpAdapter;
 import co.ke.biofit.haemotyping.service.MakeUpApi;
 
+import okhttp3.HttpUrl;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -35,6 +41,8 @@ public class CollectedSampleActivity extends AppCompatActivity {
     @BindView(R.id.errorTextView) TextView mErrorTextView;
     @BindView(R.id.progressBar) ProgressBar mProgressBar;
     ArrayList<MakeUpSearchResponse> makeUpSearchResponse=new ArrayList<>();
+    private MakeUpAdapter makeUpAdapter;
+    private RecyclerView makeup_recyclerview;
 
 
     @Override
@@ -43,6 +51,8 @@ public class CollectedSampleActivity extends AppCompatActivity {
         setContentView(R.layout.activity_collectedsample);
         ButterKnife.bind(this);
 
+        makeup_recyclerview=(RecyclerView)findViewById(R.id.makeup_recyclerView);
+        makeup_recyclerview.setLayoutManager(new LinearLayoutManager(this));
         getClientResponse();
 
         mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -64,18 +74,31 @@ public class CollectedSampleActivity extends AppCompatActivity {
     }
 
     private void getClientResponse() {
+        OkHttpClient clienta = new OkHttpClient.Builder()
+                .build();
+
+        HttpUrl.Builder urlBuilder = HttpUrl.parse("https://makeup-api.herokuapp.com/api/v1/products.json").newBuilder();
+        String url = urlBuilder.build().toString();
+        Request request = new Request.Builder()
+                .url(url)
+                .build();
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("https://makeup-api.herokuapp.com/api/v1/")
+                .baseUrl("https://makeup-api.herokuapp.com/api/v1/products.json/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 
+        okhttp3.Call calls = clienta.newCall(request);
+
         MakeUpApi client=retrofit.create(MakeUpApi.class);
-        Call <List<MakeUpSearchResponse>> call = client.getProducts();
+        Call <List<MakeUpSearchResponse>> call = client.getProducts("location", "makeUpSearchResponse");
 
         call.enqueue(new Callback<List<MakeUpSearchResponse>>() {
             @Override
             public void onResponse(Call<List<MakeUpSearchResponse>> call, Response<List<MakeUpSearchResponse>> response) {
+
                 makeUpSearchResponse= new ArrayList<>(response.body());
+                makeUpAdapter= new MakeUpAdapter(CollectedSampleActivity.this, makeUpSearchResponse);
+                makeup_recyclerview.setAdapter(makeUpAdapter);
                 Toast.makeText(CollectedSampleActivity.this, "Success", Toast.LENGTH_SHORT).show();
 
             }
