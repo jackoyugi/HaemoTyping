@@ -106,32 +106,32 @@ public class CollectedSampleActivity extends AppCompatActivity {
             @Override
             public void onFailure(Call<List<MakeUpSearchResponse>> call, Throwable t) {
                 Toast.makeText(CollectedSampleActivity.this, "Failed", Toast.LENGTH_SHORT).show();
-//                hideProgressBar();
-//                showFailureMessage();
+                hideProgressBar();
+                showFailureMessage();
                 Log.e(TAG, "onFailure: ", t);
             }
         });
 
     }
 
-//    private void showFailureMessage() {
-//        mErrorTextView.setText("Something went wrong. Please check your Internet connection and try again later");
-//        mErrorTextView.setVisibility(View.VISIBLE);
-//    }
-//
-//    private void showUnsuccessfulMessage() {
-//        mErrorTextView.setText("Something went wrong. Please try again later");
-//        mErrorTextView.setVisibility(View.VISIBLE);
-//    }
-//
-//    private void showProducts() {
-//        mListView.setVisibility(View.VISIBLE);
-//        mLocationTextView.setVisibility(View.VISIBLE);
-//    }
-//
-//    private void hideProgressBar() {
-//        mProgressBar.setVisibility(View.GONE);
-//    }
+    private void showFailureMessage() {
+        mErrorTextView.setText("Something went wrong. Please check your Internet connection and try again later");
+        mErrorTextView.setVisibility(View.VISIBLE);
+    }
+
+    private void showUnsuccessfulMessage() {
+        mErrorTextView.setText("Something went wrong. Please try again later");
+        mErrorTextView.setVisibility(View.VISIBLE);
+    }
+
+    private void showProducts() {
+        mListView.setVisibility(View.VISIBLE);
+        mLocationTextView.setVisibility(View.VISIBLE);
+    }
+
+    private void hideProgressBar() {
+        mProgressBar.setVisibility(View.GONE);
+    }
 
 
 }

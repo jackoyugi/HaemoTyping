@@ -29,5 +29,7 @@
     <string name="version">Version</string>
     <string name="event_version">Version</string>
     <string name="title_activity_about">AboutActivity</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 </resources>
