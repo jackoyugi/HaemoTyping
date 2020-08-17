@@ -5,7 +5,9 @@ import java.util.List;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
+import org.parceler.Parcel;
 
+@Parcel(Parcel.Serialization.BEAN)
 public class MakeUpSearchResponse {
 
     @SerializedName("id")
@@ -73,11 +75,14 @@ public class MakeUpSearchResponse {
     public MakeUpSearchResponse() {
     }
 
+
     /**
      * @param brand
      * @param name
      * @param price
      */
+
+
     public MakeUpSearchResponse(String brand, String name, String price) {
         super();
         this.id = id;
@@ -100,10 +105,7 @@ public class MakeUpSearchResponse {
         this.apiFeaturedImage = apiFeaturedImage;
         this.productColors = productColors;
     }
-//    @Override
-//    public String toString() {
-//        return String.format("%s, %s, %s %s", this.name, this.brand, this.apiFeaturedImage, this.priceSign);
-//    }
+
 
     public Integer getId() {
         return id;
@@ -141,16 +143,16 @@ public class MakeUpSearchResponse {
         return priceSign;
     }
 
-    public void setPriceSign(Object priceSign) {
-        this.priceSign = priceSign;
+    public Object setPriceSign(Object priceSign) {  //changed
+        return this.priceSign = priceSign;
     }
 
     public Object getCurrency() {
         return currency;
     }
 
-    public void setCurrency(Object currency) {
-        this.currency = currency;
+    public Object setCurrency(Object currency) {
+        return this.currency = currency; // changed
     }
 
     public String getImageLink() {
@@ -197,8 +199,8 @@ public class MakeUpSearchResponse {
         return category;
     }
 
-    public void setCategory(Object category) {
-        this.category = category;
+    public Object setCategory(Object category) { //changed
+        return this.category = category;
     }
 
     public String getProductType() {
@@ -213,8 +215,8 @@ public class MakeUpSearchResponse {
         return tagList;
     }
 
-    public void setTagList(List<Object> tagList) {
-        this.tagList = tagList;
+    public Object setTagList(List<Object> tagList) {   //changed
+        return this.tagList = tagList;
     }
 
     public String getCreatedAt() {

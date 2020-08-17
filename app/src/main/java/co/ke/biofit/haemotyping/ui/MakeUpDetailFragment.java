@@ -29,15 +29,15 @@ import co.ke.biofit.haemotyping.activity.MakeUpSearchResponse;
  * create an instance of this fragment.
  */
 public class MakeUpDetailFragment extends Fragment {
-    @BindView(R.id.restaurantImageView)
+    @BindView(R.id.makeUpImageView)
     ImageView mImageLabel;
-    @BindView(R.id.restaurantNameTextView) TextView mNameLabel;
-    @BindView(R.id.cuisineTextView) TextView mCategoriesLabel;
+    @BindView(R.id.makeUpNameTextView) TextView mNameLabel;
+    @BindView(R.id.makeUpTextView) TextView mCategoriesLabel;
     @BindView(R.id.ratingTextView) TextView mRatingLabel;
     @BindView(R.id.websiteTextView) TextView mWebsiteLabel;
     @BindView(R.id.phoneTextView) TextView mPhoneLabel;
     @BindView(R.id.addressTextView) TextView mAddressLabel;
-    @BindView(R.id.saveRestaurantButton) TextView mSaveRestaurantButton;
+    @BindView(R.id.saveMakeUpButton) TextView mSaveRestaurantButton;
 
     private MakeUpSearchResponse makeUpSearchResponse;
     private Bundle savedInstanceState;
@@ -46,7 +46,7 @@ public class MakeUpDetailFragment extends Fragment {
     public static MakeUpDetailFragment newInstance(MakeUpSearchResponse makeUpSearchResponse) {
         MakeUpDetailFragment makeUpDetailFragment = new MakeUpDetailFragment();
         Bundle args = new Bundle();
-        args.putParcelable("restaurant", Parcels.wrap(makeUpSearchResponse));
+        args.putParcelable("makeUpSearchResponse", Parcels.wrap(makeUpSearchResponse));
         makeUpDetailFragment.setArguments(args);
         return makeUpDetailFragment;
     }
@@ -55,7 +55,7 @@ public class MakeUpDetailFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         this.savedInstanceState = savedInstanceState;
         super.onCreate(savedInstanceState);
-        makeUpSearchResponse = Parcels.unwrap(getArguments().getParcelable("makeUpsearchResponse"));
+        makeUpSearchResponse = Parcels.unwrap(getArguments().getParcelable("makeUpSearchResponse"));
     }
 
     @Override
@@ -66,7 +66,6 @@ public class MakeUpDetailFragment extends Fragment {
         Picasso.get().load(makeUpSearchResponse.getImageLink()).into(mImageLabel);
 
         List<String> categories = new ArrayList<>();
-
 
 
         mNameLabel.setText(makeUpSearchResponse.getName());
@@ -108,5 +107,6 @@ public class MakeUpDetailFragment extends Fragment {
         fragment.setArguments(args);
         return fragment;
     }
+
 
 }

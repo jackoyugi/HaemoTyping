@@ -1,5 +1,7 @@
 package co.ke.biofit.haemotyping.adapter;
 
+import android.util.Log;
+
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
@@ -8,27 +10,34 @@ import java.util.List;
 
 import co.ke.biofit.haemotyping.activity.MakeUpSearchResponse;
 import co.ke.biofit.haemotyping.ui.MakeUpDetailFragment;
+import retrofit2.Call;
 
 public class MakeUpPageAdapter extends FragmentPagerAdapter {
-    private List<MakeUpSearchResponse> makeUpSearchResponses;
+    public static final String TAG = MakeUpPageAdapter.class.getSimpleName();
 
-    public MakeUpPageAdapter(FragmentManager fm, int behavior, List<MakeUpSearchResponse> makeUpSearchResponses) {
+    private List<MakeUpSearchResponse> mMakeUpSearchResponse;
+
+    public MakeUpPageAdapter(FragmentManager fm, int behavior, List<MakeUpSearchResponse> makeUpSearchResponse) {
         super(fm, behavior);
-       makeUpSearchResponses=makeUpSearchResponses;
+       mMakeUpSearchResponse=makeUpSearchResponse;
     }
 
     @Override
     public Fragment getItem(int position) {
-        return MakeUpDetailFragment.newInstance(makeUpSearchResponses.get(position));
+        return MakeUpDetailFragment.newInstance(mMakeUpSearchResponse.get(position));
     }
 
     @Override
     public int getCount() {
-        return makeUpSearchResponses.size();
+        return mMakeUpSearchResponse.size();
     }
 
     @Override
     public CharSequence getPageTitle(int position) {
-        return makeUpSearchResponses.get(position).getName();
+        return mMakeUpSearchResponse.get(position).getName();
+    }
+
+    public void onFailure(Call<MakeUpSearchResponse> call, Throwable t) {
+        Log.e(TAG, "onFailure: ", t);
     }
 }
