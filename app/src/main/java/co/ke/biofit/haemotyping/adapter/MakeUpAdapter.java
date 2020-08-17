@@ -8,57 +8,40 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.squareup.picasso.Picasso;
 
-import java.util.ArrayList;
+import java.util.List;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
 import co.ke.biofit.haemotyping.R;
 import co.ke.biofit.haemotyping.activity.MakeUpSearchResponse;
-import co.ke.biofit.haemotyping.ui.MainActivity;
 import retrofit2.Call;
 
 public class MakeUpAdapter extends RecyclerView.Adapter<MakeUpAdapter.viewHolder> {
     public static final String TAG = MakeUpAdapter.class.getSimpleName();
-    private Context context;
-    private ArrayList<MakeUpSearchResponse> makeUpSearchResponses;
+    private Context mContext;
+    private List<MakeUpSearchResponse> makeUpSearchResponses;
 
 
-    public MakeUpAdapter(Context context, ArrayList<MakeUpSearchResponse> makeUpSearchResponse) {
-        this.makeUpSearchResponses=makeUpSearchResponse;
-        this.context=context;
+    public MakeUpAdapter(Context context, List<MakeUpSearchResponse> makeUpSearchResponse) {
+       makeUpSearchResponses=makeUpSearchResponse;
+       mContext=context;
 
     }
 
-    @NonNull
     @Override
-    public MakeUpAdapter.viewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int viewType) {
-        View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.makeup_list_item, viewGroup, false);
-        return new MakeUpAdapter.viewHolder(view);
+    public MakeUpAdapter.viewHolder onCreateViewHolder(ViewGroup parent, int viewType){
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.makeup_list_item, parent, false);
+        viewHolder viewHolder = new viewHolder(view);
+        return viewHolder;
     }
 
     @Override
-    public void onBindViewHolder(@NonNull MakeUpAdapter.viewHolder viewHolder, int position) {
-        String[] makeup_name = new String[makeUpSearchResponses.size()];
-        String[] makeup_brand = new String[makeUpSearchResponses.size()];
-        String[] makeup_image = new String[makeUpSearchResponses.size()];
-        for (int i = 0; i<makeup_name.length; i++){
-            viewHolder.makeup_name.setText(makeUpSearchResponses.get(i).getName());
-        }
-        for (int i =0; i<makeup_brand.length; i++){
-            viewHolder.makeup_brand.setText(makeUpSearchResponses.get(i).getBrand());
-        }
-        for (int i=0; i< makeup_image.length; i++){
-            Picasso.get().load(makeUpSearchResponses.get(i).getImageLink()).into(viewHolder.makeup_image);
-        }
-
-//        viewHolder.makeup_name.setText(makeUpSearchResponses.get(12).getName());
-//        viewHolder.makeup_brand.setText(makeUpSearchResponses.get(12).getBrand());
-//
-//        Picasso.get().load(makeUpSearchResponses.get(12).getImageLink()).into(viewHolder.makeup_image);
-
+    public void onBindViewHolder(MakeUpAdapter.viewHolder holder, int position){
+        holder.bindMakeUp(makeUpSearchResponses.get(position));
     }
 
     @Override
@@ -66,17 +49,31 @@ public class MakeUpAdapter extends RecyclerView.Adapter<MakeUpAdapter.viewHolder
         return makeUpSearchResponses.size();
     }
 
-    public class viewHolder extends RecyclerView.ViewHolder{
-        private ImageView makeup_image;
-        private TextView makeup_name, makeup_brand;
-        public viewHolder(@NonNull View itemView) {
-            super(itemView);
 
-            makeup_image=(ImageView)itemView.findViewById(R.id.makeup_image);
-            makeup_name=(TextView)itemView.findViewById(R.id.makeup_name);
-            makeup_brand=(TextView)itemView.findViewById(R.id.makeup_brand);
+    public class viewHolder extends RecyclerView.ViewHolder {
+
+        @BindView(R.id.makeup_name) TextView mNameTextView;
+        @BindView(R.id.makeup_brand) TextView mBrandTextView;
+        @BindView(R.id.makeup_image) ImageView mImageView;
+
+        private Context mContext;
+
+        public viewHolder(View itemView) {
+            super(itemView);
+            ButterKnife.bind(this, itemView);
+            mContext = itemView.getContext();
+        }
+
+
+        public void bindMakeUp(MakeUpSearchResponse makeUpSearchResponse){
+            mNameTextView.setText(makeUpSearchResponse.getName());
+            mBrandTextView.setText(makeUpSearchResponse.getBrand());
+            Picasso.get().load(makeUpSearchResponse.getImageLink()).into(mImageView);
+
         }
     }
+
+
     public void onFailure(Call<MakeUpSearchResponse> call, Throwable t) {
         Log.e(TAG, "onFailure: ", t);
     }

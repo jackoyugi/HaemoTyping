@@ -2,13 +2,9 @@ package co.ke.biofit.haemotyping.ui;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -24,26 +20,23 @@ import co.ke.biofit.haemotyping.activity.MakeUpSearchResponse;
 import co.ke.biofit.haemotyping.adapter.MakeUpAdapter;
 import co.ke.biofit.haemotyping.service.MakeUpApi;
 
-import okhttp3.HttpUrl;
-import okhttp3.OkHttpClient;
-import okhttp3.Request;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
-import retrofit2.Retrofit;
-import retrofit2.converter.gson.GsonConverterFactory;
+
+import static co.ke.biofit.haemotyping.service.MakeUpClient.getClient;
 
 
 public class CollectedSampleActivity extends AppCompatActivity {
     public static final String TAG = CollectedSampleActivity.class.getSimpleName();
-    @BindView(R.id.locationTextView) TextView mLocationTextView;
-    @BindView(R.id.listView) ListView mListView;
+
+    @BindView(R.id.makeup_recyclerView) RecyclerView mRecyclerView;
+    private MakeUpAdapter mAdapter;
+
+    public List<MakeUpSearchResponse> makeUpSearchResponse;
+
     @BindView(R.id.errorTextView) TextView mErrorTextView;
     @BindView(R.id.progressBar) ProgressBar mProgressBar;
-    ArrayList<MakeUpSearchResponse> makeUpSearchResponse=new ArrayList<>();
-    private MakeUpAdapter makeUpAdapter;
-    private RecyclerView makeup_recyclerview;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,68 +44,52 @@ public class CollectedSampleActivity extends AppCompatActivity {
         setContentView(R.layout.activity_collectedsample);
         ButterKnife.bind(this);
 
-        makeup_recyclerview=(RecyclerView)findViewById(R.id.makeup_recyclerView);
-        makeup_recyclerview.setLayoutManager(new LinearLayoutManager(this));
-        getClientResponse();
 
-        mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                String collectedSample = ((TextView) view).getText().toString();
-                Log.v("CollectedSampleActivity", "In the onItemClickListener!");
-                Toast.makeText(CollectedSampleActivity.this, collectedSample, Toast.LENGTH_LONG).show();
-            }
-        });
 
         Intent intent = getIntent();
 
-        String brand = intent.getStringExtra("location");
-        mLocationTextView.setText("Here are all the people with blood group (?) near you: " + brand);
+        String location = intent.getStringExtra("location");
 
-//        MakeUpApi client = getClient();
+        MakeUpApi client = getClient();
 
-    }
-
-    private void getClientResponse() {
-        OkHttpClient clienta = new OkHttpClient.Builder()
-                .build();
-
-        HttpUrl.Builder urlBuilder = HttpUrl.parse("https://makeup-api.herokuapp.com/api/v1/products.json").newBuilder();
-        String url = urlBuilder.build().toString();
-        Request request = new Request.Builder()
-                .url(url)
-                .build();
-        Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("https://makeup-api.herokuapp.com/api/v1/products.json/")
-                .addConverterFactory(GsonConverterFactory.create())
-                .build();
-
-        okhttp3.Call calls = clienta.newCall(request);
-
-        MakeUpApi client=retrofit.create(MakeUpApi.class);
-        Call <List<MakeUpSearchResponse>> call = client.getProducts("location", "makeUpSearchResponse");
+        Call<List<MakeUpSearchResponse>> call = client.getProducts(location, "makeUpSearchResponse");
 
         call.enqueue(new Callback<List<MakeUpSearchResponse>>() {
+
             @Override
             public void onResponse(Call<List<MakeUpSearchResponse>> call, Response<List<MakeUpSearchResponse>> response) {
+                hideProgressBar();
 
-                makeUpSearchResponse= new ArrayList<>(response.body());
-                makeUpAdapter= new MakeUpAdapter(CollectedSampleActivity.this, makeUpSearchResponse);
-                makeup_recyclerview.setAdapter(makeUpAdapter);
-                Toast.makeText(CollectedSampleActivity.this, "Success", Toast.LENGTH_SHORT).show();
+                if (response.isSuccessful()) {
+
+
+                    makeUpSearchResponse= new ArrayList<>(response.body());
+
+                    mAdapter = new MakeUpAdapter(CollectedSampleActivity.this, makeUpSearchResponse);
+
+
+                    mRecyclerView.setAdapter(mAdapter);
+                    RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(CollectedSampleActivity.this);
+                    mRecyclerView.setLayoutManager(layoutManager);
+                    mRecyclerView.setHasFixedSize(true);
+
+                    showProducts();
+                } else {
+                    showUnsuccessfulMessage();
+                }
 
             }
 
             @Override
             public void onFailure(Call<List<MakeUpSearchResponse>> call, Throwable t) {
-                Toast.makeText(CollectedSampleActivity.this, "Failed", Toast.LENGTH_SHORT).show();
                 hideProgressBar();
                 showFailureMessage();
-                Log.e(TAG, "onFailure: ", t);
+
             }
         });
 
     }
+    // below displays error when the search is successful or available
 
     private void showFailureMessage() {
         mErrorTextView.setText("Something went wrong. Please check your Internet connection and try again later");
@@ -125,8 +102,7 @@ public class CollectedSampleActivity extends AppCompatActivity {
     }
 
     private void showProducts() {
-        mListView.setVisibility(View.VISIBLE);
-        mLocationTextView.setVisibility(View.VISIBLE);
+        mRecyclerView.setVisibility(View.VISIBLE);
     }
 
     private void hideProgressBar() {
