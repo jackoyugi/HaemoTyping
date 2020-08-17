@@ -41,7 +41,7 @@ public class MakeUpListActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_collectedsample);
+        setContentView(R.layout.activity_makeup);
         ButterKnife.bind(this);
 
 
