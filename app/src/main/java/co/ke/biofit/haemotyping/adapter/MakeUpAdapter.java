@@ -31,6 +31,7 @@ public class MakeUpAdapter extends RecyclerView.Adapter<MakeUpAdapter.viewHolder
        mContext=context;
 
     }
+    //inflating the adapter
 
     @Override
     public MakeUpAdapter.viewHolder onCreateViewHolder(ViewGroup parent, int viewType){
@@ -43,11 +44,14 @@ public class MakeUpAdapter extends RecyclerView.Adapter<MakeUpAdapter.viewHolder
     public void onBindViewHolder(MakeUpAdapter.viewHolder holder, int position){
         holder.bindMakeUp(makeUpSearchResponses.get(position));
     }
+    //check for the arraylist
 
     @Override
     public int getItemCount() {
         return makeUpSearchResponses.size();
     }
+
+    //information to be displayed are stored in viewholder
 
 
     public class viewHolder extends RecyclerView.ViewHolder {
@@ -73,7 +77,7 @@ public class MakeUpAdapter extends RecyclerView.Adapter<MakeUpAdapter.viewHolder
         }
     }
 
-
+    // this one is helpful for showing error messages in the logcat for ease debugging
     public void onFailure(Call<MakeUpSearchResponse> call, Throwable t) {
         Log.e(TAG, "onFailure: ", t);
     }

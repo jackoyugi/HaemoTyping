@@ -13,7 +13,7 @@
         android:theme="@style/AppTheme">
 
         <activity
-            android:name=".ui.CollectedSampleActivity"
+            android:name=".ui.MakeUpListActivity"
             android:label="@string/title_activity_collectedsample">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"

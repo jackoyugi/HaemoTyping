@@ -6,7 +6,7 @@
     android:id="@+id/baseLayout">
 
     <TextView
-        android:text="What blood group are you?"
+        android:text="Which make up are you looking for?"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/MoodLabel"
@@ -31,51 +31,51 @@
             android:padding="10dp">
 
             <RadioButton
-                android:text="AB+"
+                android:text="body"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/radioButton1"
                 android:layout_weight="1" />
             <RadioButton
-                android:text="AB-"
+                android:text="face"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/radioButton2"
                 android:layout_weight="1" />
             <RadioButton
-                android:text="O+"
+                android:text="eyes"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:checked="true"
                 android:id="@+id/radioButton3"
                 android:layout_weight="1" />
             <RadioButton
-                android:text="O-"
+                android:text="lips"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/radioButton4"
                 android:layout_weight="1" />
             <RadioButton
-                android:text="B+"
+                android:text="nails"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/radioButton5"
                 android:layout_weight="1" />
             <RadioButton
-                android:text="B-"
+                android:text="hair"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:checked="true"
                 android:id="@+id/radioButton6"
                 android:layout_weight="1" />
             <RadioButton
-                android:text="A-"
+                android:text="eys"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/radioButton7"
                 android:layout_weight="1" />
             <RadioButton
-                android:text="A+"
+                android:text="ears"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/radioButton8"

@@ -27,8 +27,8 @@ import retrofit2.Response;
 import static co.ke.biofit.haemotyping.service.MakeUpClient.getClient;
 
 
-public class CollectedSampleActivity extends AppCompatActivity {
-    public static final String TAG = CollectedSampleActivity.class.getSimpleName();
+public class MakeUpListActivity extends AppCompatActivity {
+    public static final String TAG = MakeUpListActivity.class.getSimpleName();
 
     @BindView(R.id.makeup_recyclerView) RecyclerView mRecyclerView;
     private MakeUpAdapter mAdapter;
@@ -52,6 +52,8 @@ public class CollectedSampleActivity extends AppCompatActivity {
 
         MakeUpApi client = getClient();
 
+        //responsible for getting data from makeup api and displays through recycler adapters as stated
+
         Call<List<MakeUpSearchResponse>> call = client.getProducts(location, "makeUpSearchResponse");
 
         call.enqueue(new Callback<List<MakeUpSearchResponse>>() {
@@ -65,11 +67,11 @@ public class CollectedSampleActivity extends AppCompatActivity {
 
                     makeUpSearchResponse= new ArrayList<>(response.body());
 
-                    mAdapter = new MakeUpAdapter(CollectedSampleActivity.this, makeUpSearchResponse);
+                    mAdapter = new MakeUpAdapter(MakeUpListActivity.this, makeUpSearchResponse);
 
 
                     mRecyclerView.setAdapter(mAdapter);
-                    RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(CollectedSampleActivity.this);
+                    RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(MakeUpListActivity.this);
                     mRecyclerView.setLayoutManager(layoutManager);
                     mRecyclerView.setHasFixedSize(true);
 
@@ -79,6 +81,7 @@ public class CollectedSampleActivity extends AppCompatActivity {
                 }
 
             }
+            // throws error message implements the call method
 
             @Override
             public void onFailure(Call<List<MakeUpSearchResponse>> call, Throwable t) {

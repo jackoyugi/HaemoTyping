@@ -18,7 +18,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Your Blood Groups near you!"
+        android:text="Find ladys makeups!"
         android:textColor="@color/colorPrimaryDarkb"
         android:textSize="20sp"
         android:textStyle="bold"

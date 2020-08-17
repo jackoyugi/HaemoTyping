@@ -9,7 +9,7 @@ import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
-import co.ke.biofit.haemotyping.ui.CollectedSampleActivity;
+import co.ke.biofit.haemotyping.ui.MakeUpListActivity;
 
 import static androidx.test.espresso.Espresso.onData;
 import static androidx.test.espresso.Espresso.onView;
@@ -24,8 +24,8 @@ import static org.hamcrest.core.IsNot.not;
 @RunWith(AndroidJUnit4.class)
 public class CollectedSampleActivityInstrumentationTest {
     @Rule
-    public ActivityTestRule<CollectedSampleActivity> activityTestRule =
-            new ActivityTestRule<>(CollectedSampleActivity.class);
+    public ActivityTestRule<MakeUpListActivity> activityTestRule =
+            new ActivityTestRule<>(MakeUpListActivity.class);
 
 
     @Test

@@ -10,7 +10,7 @@ import org.robolectric.Robolectric;
 import org.robolectric.RobolectricTestRunner;
 import org.robolectric.shadows.ShadowActivity;
 
-import co.ke.biofit.haemotyping.ui.CollectedSampleActivity;
+import co.ke.biofit.haemotyping.ui.MakeUpListActivity;
 import co.ke.biofit.haemotyping.ui.MainActivity;
 
 import static junit.framework.TestCase.assertEquals;
@@ -35,7 +35,7 @@ public class MainActivityTest {
     @Test
     public void secondActivityStarted(){
         activity.findViewById(R.id.snapButton).performClick();
-        Intent expectedIntent = new Intent(activity, CollectedSampleActivity.class);
+        Intent expectedIntent = new Intent(activity, MakeUpListActivity.class);
         ShadowActivity shadowActivity = org.robolectric.Shadows.shadowOf(activity);
         Intent actualIntent = shadowActivity.getNextStartedActivity();
         assertTrue(actualIntent.filterEquals(expectedIntent));

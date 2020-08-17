@@ -16,7 +16,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="35dp"
         android:background="@color/colorPrimaryDark"
-        android:text=" `Donate Blood`"
+        android:text=" `MakeUp`"
         android:textColor="@color/colorAccent"
         android:textSize="50sp"
         android:textStyle="bold" />
@@ -25,11 +25,11 @@
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:id="@+id/imageView"
-        android:src="@drawable/blood"
+        android:src="@drawable/make_up"
         android:scaleType="centerCrop" />
 
     <TextView
-        android:text="`Donate Blood`"
+        android:text="MAKEUPS"
         android:textColor="@color/colorPrimaryDarkb"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -57,7 +57,7 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:background="@color/colorPrimarya"
-        android:text="Find Your Blood Group"
+        android:text="Searh MakeUps"
         android:textAllCaps="false"
         android:textSize="30sp"
         android:textStyle="bold"
