@@ -1,6 +1,7 @@
 package co.ke.biofit.haemotyping.ui;
 
 import android.os.Bundle;
+import android.util.Log;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentPagerAdapter;
@@ -8,6 +9,7 @@ import androidx.viewpager.widget.ViewPager;
 
 import org.parceler.Parcels;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
@@ -15,12 +17,14 @@ import butterknife.ButterKnife;
 import co.ke.biofit.haemotyping.R;
 import co.ke.biofit.haemotyping.activity.MakeUpSearchResponse;
 import co.ke.biofit.haemotyping.adapter.MakeUpPageAdapter;
+import retrofit2.Call;
 
 public class MakeUpDetailActivity extends AppCompatActivity {
+    public static final String TAG = MakeUpDetailActivity.class.getSimpleName();
 
     @BindView(R.id.viewPager) ViewPager mViewPager;
     private MakeUpPageAdapter adapterViewPager;
-    List<MakeUpSearchResponse> mMakeUpSearchResponse;
+    ArrayList<MakeUpSearchResponse> makeUpSearchResponse;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,11 +32,14 @@ public class MakeUpDetailActivity extends AppCompatActivity {
         setContentView(R.layout.activity_makeup_detail);
         ButterKnife.bind(this);
 
-        mMakeUpSearchResponse = Parcels.unwrap(getIntent().getParcelableExtra("makeups"));
+        makeUpSearchResponse = Parcels.unwrap(getIntent().getParcelableExtra("makeups"));
         int startingPosition = getIntent().getIntExtra("position", 0);
 
-        adapterViewPager = new MakeUpPageAdapter(getSupportFragmentManager(), FragmentPagerAdapter.BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT, mMakeUpSearchResponse);
+        adapterViewPager = new MakeUpPageAdapter(getSupportFragmentManager(), FragmentPagerAdapter.BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT, makeUpSearchResponse);
         mViewPager.setAdapter(adapterViewPager);
         mViewPager.setCurrentItem(startingPosition);
+    }
+    public void onFailure(Call<MakeUpSearchResponse> call, Throwable t) {
+        Log.e(TAG, "onFailure: ", t);
     }
 }

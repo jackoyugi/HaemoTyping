@@ -20,6 +20,7 @@
                 android:value="co.ke.biofit.haemotyping.ui.MainActivity">
             </meta-data>
         </activity>
+        <activity android:name=".ui.MakeUpDetailActivity" />
 
         <activity
             android:name=".ui.MainActivity"
