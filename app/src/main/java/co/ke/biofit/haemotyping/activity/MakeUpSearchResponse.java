@@ -7,7 +7,7 @@ import com.google.gson.annotations.SerializedName;
 
 import org.parceler.Parcel;
 
-@Parcel(Parcel.Serialization.BEAN)
+@Parcel
 public class MakeUpSearchResponse {
 
     @SerializedName("id")
@@ -24,10 +24,10 @@ public class MakeUpSearchResponse {
     private String price;
     @SerializedName("price_sign")
     @Expose
-    private Object priceSign;
+    private String priceSign; //changed
     @SerializedName("currency")
     @Expose
-    private Object currency;
+    private String currency; //changed
     @SerializedName("image_link")
     @Expose
     private String imageLink;
@@ -45,13 +45,13 @@ public class MakeUpSearchResponse {
     private Double rating;
     @SerializedName("category")
     @Expose
-    private Object category;
+    private String category; //changed
     @SerializedName("product_type")
     @Expose
     private String productType;
     @SerializedName("tag_list")
     @Expose
-    private List<Object> tagList = null;
+    private List<String> tagList = null; //changed
     @SerializedName("created_at")
     @Expose
     private String createdAt;
@@ -70,7 +70,10 @@ public class MakeUpSearchResponse {
 
     /**
      * No args constructor for use in serialization
-     * 
+     *
+     * @param name
+     * @param brand
+     * @param apiFeaturedImage
      */
     public MakeUpSearchResponse() {
     }
@@ -83,7 +86,8 @@ public class MakeUpSearchResponse {
      */
 
 
-    public MakeUpSearchResponse(String brand, String name, String price) {
+    public MakeUpSearchResponse(int id, String brand, String name, String price, String priceSign, String currency, String imageLink, String productLink, String websiteLink,
+    String description, Double rating, String category, String productType, List tagList, String createdAt, String updatedAt, String productApiUrl, String apiFeaturedImage,  List productColors  ) {
         super();
         this.id = id;
         this.brand = brand;
@@ -139,20 +143,20 @@ public class MakeUpSearchResponse {
         this.price = price;
     }
 
-    public Object getPriceSign() {
+    public String getPriceSign() {
         return priceSign;
     }
 
-    public Object setPriceSign(Object priceSign) {  //changed
-        return this.priceSign = priceSign;
-    }
+    public String setPriceSign(String priceSign) {  //changed
+        return priceSign = priceSign;
+    } //changed
 
-    public Object getCurrency() {
+    public String getCurrency() {
         return currency;
-    }
+    } //changed
 
-    public Object setCurrency(Object currency) {
-        return this.currency = currency; // changed
+    public String setCurrency(String currency) {
+        return currency = currency; // changed
     }
 
     public String getImageLink() {
@@ -195,37 +199,37 @@ public class MakeUpSearchResponse {
         this.rating = rating;
     }
 
-    public Object getCategory() {
+    public String getCategory() {
         return category;
-    }
+    } //changed
 
-    public Object setCategory(Object category) { //changed
+    public String setCategory(String category) { //changed
         return this.category = category;
-    }
+    } //changed
 
     public String getProductType() {
         return productType;
     }
 
     public void setProductType(String productType) {
-        this.productType = productType;
+        this.productType = productType;  //changed
     }
 
-    public List<Object> getTagList() {
+    public List<String> getTagList() {
         return tagList;
     }
 
-    public Object setTagList(List<Object> tagList) {   //changed
-        return this.tagList = tagList;
-    }
+    public List<String> setTagList(List<String> tagList) {   //changed
+        return  tagList = tagList;
+    } //changed
 
     public String getCreatedAt() {
         return createdAt;
     }
 
     public void setCreatedAt(String createdAt) {
-        this.createdAt = createdAt;
-    }
+        createdAt = createdAt;
+    } //changed
 
     public String getUpdatedAt() {
         return updatedAt;

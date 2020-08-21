@@ -6,10 +6,10 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import co.ke.biofit.haemotyping.activity.MakeUpSearchResponse;
+import co.ke.biofit.haemotyping.activity.ProductColor;
 import co.ke.biofit.haemotyping.ui.MakeUpDetailFragment;
 import retrofit2.Call;
 
@@ -24,13 +24,13 @@ public class MakeUpPageAdapter extends FragmentPagerAdapter {
     }
 
     @Override
-    public Fragment getItem(int position) {
+    public Fragment getItem(int position) {                                                          //changed to fragment from makeupdetailfragment
         return MakeUpDetailFragment.newInstance(makeUpSearchResponses.get(position));
     }
 
     @Override
     public int getCount() {
-        return makeUpSearchResponses.size();
+        return  makeUpSearchResponses.size();
     }
 
     @Override

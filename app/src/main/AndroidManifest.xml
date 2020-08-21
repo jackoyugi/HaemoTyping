@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="co.ke.biofit.haemotyping">
 
     <uses-permission android:name="android.permission.INTERNET"/>
@@ -20,7 +21,13 @@
                 android:value="co.ke.biofit.haemotyping.ui.MainActivity">
             </meta-data>
         </activity>
-        <activity android:name=".ui.MakeUpDetailActivity" />
+        <activity
+            android:name=".ui.MakeUpDetailActivity" />
+
+        <activity
+            android:name=".ui.MakeUpDetailFragment"
+            tools:ignore="Instantiatable" />
+
 
         <activity
             android:name=".ui.MainActivity"

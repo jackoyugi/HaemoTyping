@@ -6,7 +6,7 @@ import com.google.gson.annotations.SerializedName;
 
 import org.parceler.Parcel;
 
-@Parcel
+@Parcel(Parcel.Serialization.BEAN)
 public class ProductColor {
 
     @SerializedName("hex_value")

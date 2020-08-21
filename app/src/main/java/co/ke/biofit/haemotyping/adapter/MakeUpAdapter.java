@@ -91,7 +91,7 @@ public class MakeUpAdapter extends RecyclerView.Adapter<MakeUpAdapter.viewHolder
             int itemPosition = getLayoutPosition();
             Intent intent = new Intent(mContext, MakeUpDetailActivity.class);
             intent.putExtra("position", itemPosition);
-            intent.putExtra("restaurants", Parcels.wrap(makeUpSearchResponses));
+            intent.putExtra("makeUpSearchResponses", Parcels.wrap(makeUpSearchResponses));
             mContext.startActivity(intent);
 
         }

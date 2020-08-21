@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "713707451816",
+    "firebase_url": "https://makeups-78971.firebaseio.com",
+    "project_id": "makeups-78971",
+    "storage_bucket": "makeups-78971.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:713707451816:android:083fe85ad3ecb1a14d599d",
+        "android_client_info": {
+          "package_name": "co.ke.biofit.haemotyping"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "713707451816-hdfmtm7s64pcnlkkkqq9ogp4c0tkcpv4.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "co.ke.biofit.haemotyping",
+            "certificate_hash": "5f3fe71d561363658f7a1aa02e839f60439c99a7"
+          }
+        },
+        {
+          "client_id": "713707451816-pi746qauq8iueb1qkce48ib742ssda6l.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAJPrw5UlsRhBreZyF0GW9EUBuFtZJaE1Q"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "713707451816-pi746qauq8iueb1qkce48ib742ssda6l.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

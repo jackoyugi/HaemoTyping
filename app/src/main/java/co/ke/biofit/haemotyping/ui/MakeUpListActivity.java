@@ -1,12 +1,15 @@
 package co.ke.biofit.haemotyping.ui;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.preference.PreferenceManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -15,6 +18,7 @@ import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import co.ke.biofit.haemotyping.Constants;
 import co.ke.biofit.haemotyping.R;
 import co.ke.biofit.haemotyping.activity.MakeUpSearchResponse;
 import co.ke.biofit.haemotyping.adapter.MakeUpAdapter;
@@ -29,6 +33,9 @@ import static co.ke.biofit.haemotyping.service.MakeUpClient.getClient;
 
 public class MakeUpListActivity extends AppCompatActivity {
     public static final String TAG = MakeUpListActivity.class.getSimpleName();
+
+    private SharedPreferences mSharedPreferences;
+    private String mRecentAddress;
 
     @BindView(R.id.makeup_recyclerView) RecyclerView mRecyclerView;
     private MakeUpAdapter mAdapter;
@@ -90,6 +97,13 @@ public class MakeUpListActivity extends AppCompatActivity {
 
             }
         });
+
+//        mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+//        mRecentAddress = mSharedPreferences.getString(Constants.PREFERENCES_LOCATION_KEY, null);
+//        Log.d("Shared Pref Location", mRecentAddress);
+//        if (mRecentAddress != null) {
+//            getProducts(mRecentAddress);
+//        }
 
     }
     // below displays error when the search is successful or available
