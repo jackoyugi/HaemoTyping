@@ -69,7 +69,7 @@
         android:layout_marginLeft="2dp"
         android:layout_marginBottom="44dp"
         android:background="@color/colorAccent"
-        android:text="My Saved Restaurants"
+        android:text="My Saved MakeUps"
         android:textColor="@color/colorTextIcons"
         android:visibility="visible" />
 
