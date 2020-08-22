@@ -39,6 +39,10 @@ import static co.ke.biofit.haemotyping.service.MakeUpClient.getClient;
 public class MakeUpListActivity extends AppCompatActivity {
     public static final String TAG = MakeUpListActivity.class.getSimpleName();
 
+    @BindView(R.id.errorTextView) TextView mErrorTextView;
+    @BindView(R.id.progressBar) ProgressBar mProgressBar;
+
+
     private SharedPreferences mSharedPreferences;
     private SharedPreferences.Editor mEditor;
     private String mRecentAddress;
@@ -48,8 +52,6 @@ public class MakeUpListActivity extends AppCompatActivity {
 
     public List<MakeUpSearchResponse> makeUpSearchResponse;
 
-    @BindView(R.id.errorTextView) TextView mErrorTextView;
-    @BindView(R.id.progressBar) ProgressBar mProgressBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,7 +68,7 @@ public class MakeUpListActivity extends AppCompatActivity {
 
         mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
         mRecentAddress = mSharedPreferences.getString(Constants.PREFERENCES_LOCATION_KEY, null);
-//        Log.d("Shared Pref Location", mRecentAddress);
+
         if (mRecentAddress != null) {
             getProducts(mRecentAddress);
         }
@@ -113,7 +115,7 @@ public class MakeUpListActivity extends AppCompatActivity {
     private void getProducts(String location){
 
 
-        MakeUpApi client = getClient();
+       final MakeUpApi client = getClient();
 
         //responsible for getting data from makeup api and displays through recycler adapters as stated
 
