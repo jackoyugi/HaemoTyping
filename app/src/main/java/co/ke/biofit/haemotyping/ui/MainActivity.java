@@ -37,6 +37,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private ValueEventListener mSearchedLocationReferenceListener;
 
+    @BindView(R.id.savedMakeUpButton) Button mSavedMakeUpButton;
+
+
 
     @BindView(R.id.snapButton) Button mSnapButton;
     @BindView(R.id.appNameTextView) TextView mAppNameTextView;
@@ -54,6 +57,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 .getInstance()
                 .getReference()
                 .child(Constants.FIREBASE_CHILD_SEARCHED_LOCATION); //pinpoint location node
+
+
 
         mSearchedLocationReferenceListener = mSearchedLocationReference.addValueEventListener(new ValueEventListener(){ //attach listener
 
@@ -84,6 +89,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         mSnapButton.setOnClickListener(this);
 
+        mSavedMakeUpButton.setOnClickListener(this);
+
 
         FragmentManager fm = getSupportFragmentManager();
         HomeFragment HomeFragment = new HomeFragment ();
@@ -111,6 +118,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             intent.putExtra("location" , location);
             startActivity(intent);
 
+        }
+
+        if (view == mSavedMakeUpButton) {
+            Intent intent = new Intent(MainActivity.this, SavedMakeUpListActivity.class);
+            startActivity(intent);
         }
 
     }

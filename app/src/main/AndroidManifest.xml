@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="co.ke.biofit.haemotyping">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -12,23 +12,18 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-
+        <activity android:name=".ui.SavedMakeUpListActivity"></activity>
         <activity
             android:name=".ui.MakeUpListActivity"
             android:label="@string/title_activity_collectedsample">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="co.ke.biofit.haemotyping.ui.MainActivity">
-            </meta-data>
+                android:value="co.ke.biofit.haemotyping.ui.MainActivity"></meta-data>
         </activity>
-        <activity
-            android:name=".ui.MakeUpDetailActivity" />
-
+        <activity android:name=".ui.MakeUpDetailActivity" />
         <activity
             android:name=".ui.MakeUpDetailFragment"
             tools:ignore="Instantiatable" />
-
-
         <activity
             android:name=".ui.MainActivity"
             android:theme="@style/NoActionBarTheme">

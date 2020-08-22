@@ -65,8 +65,6 @@ public class MakeUpDetailFragment extends Fragment implements View.OnClickListen
 
         Picasso.get().load(makeUpSearchResponse.getImageLink()).into(mImageLabel);
 
-        List<String> categories = new ArrayList<>();
-
 
         mNameLabel.setText(makeUpSearchResponse.getName());
         mCategoriesLabel.setText(android.text.TextUtils.join(", ", makeUpSearchResponse.getProductColors())); //changed
@@ -94,10 +92,10 @@ public class MakeUpDetailFragment extends Fragment implements View.OnClickListen
     public void onClick(View view) {
 
         if (view == mSavedMakeUpButton) {
-            DatabaseReference makeUpSearchResponsetRef = FirebaseDatabase
+            DatabaseReference makeUpSearchResponseRef = FirebaseDatabase
                     .getInstance()
                     .getReference(Constants.FIREBASE_CHILD_MAKEUPSEARCHRESPONSE);
-            makeUpSearchResponsetRef.push().setValue(makeUpSearchResponse);
+            makeUpSearchResponseRef.push().setValue(makeUpSearchResponse);
             Toast.makeText(getContext(), "Saved", Toast.LENGTH_SHORT).show();
         }
 

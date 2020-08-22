@@ -50,18 +50,40 @@
         android:hint="Enter your location e.g Nairobi"
         android:textStyle="italic"
         android:layout_centerHorizontal="true" />
+
     <Button
         android:id="@+id/snapButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_above="@+id/savedMakeUpButton"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginBottom="120dp"
         android:background="@color/colorPrimarya"
-        android:text="Searh MakeUps"
+        android:text="Search MakeUps"
         android:textAllCaps="false"
+        android:textColor="@color/white"
         android:textSize="30sp"
-        android:textStyle="bold"
-        android:textColor="@color/white" />
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/savedMakeUpButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="2dp"
+        android:layout_marginLeft="2dp"
+        android:layout_marginBottom="44dp"
+        android:background="@color/colorAccent"
+        android:text="My Saved Restaurants"
+        android:textColor="@color/colorTextIcons"
+        android:visibility="visible" />
 
 
 </RelativeLayout>
