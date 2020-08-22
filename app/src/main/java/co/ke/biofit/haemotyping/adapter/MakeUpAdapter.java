@@ -20,7 +20,7 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import co.ke.biofit.haemotyping.R;
-import co.ke.biofit.haemotyping.activity.MakeUpSearchResponse;
+import co.ke.biofit.haemotyping.model.MakeUpSearchResponse;
 import co.ke.biofit.haemotyping.ui.MakeUpDetailActivity;
 import retrofit2.Call;
 

@@ -20,13 +20,12 @@ import com.squareup.picasso.Picasso;
 import org.parceler.Parcels;
 
 import java.util.ArrayList;
-import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import co.ke.biofit.haemotyping.Constants;
 import co.ke.biofit.haemotyping.R;
-import co.ke.biofit.haemotyping.activity.MakeUpSearchResponse;
+import co.ke.biofit.haemotyping.model.MakeUpSearchResponse;
 
 public class MakeUpDetailFragment extends Fragment implements View.OnClickListener {
     @BindView(R.id.makeUpImageView)

@@ -9,14 +9,12 @@ import androidx.viewpager.widget.ViewPager;
 
 import org.parceler.Parcels;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import co.ke.biofit.haemotyping.R;
-import co.ke.biofit.haemotyping.activity.MakeUpSearchResponse;
-import co.ke.biofit.haemotyping.activity.ProductColor;
+import co.ke.biofit.haemotyping.model.MakeUpSearchResponse;
 import co.ke.biofit.haemotyping.adapter.MakeUpPageAdapter;
 import retrofit2.Call;
 

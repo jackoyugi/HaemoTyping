@@ -1,11 +1,8 @@
 
-package co.ke.biofit.haemotyping.activity;
-
-import android.location.Location;
+package co.ke.biofit.haemotyping.model;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Locale;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;

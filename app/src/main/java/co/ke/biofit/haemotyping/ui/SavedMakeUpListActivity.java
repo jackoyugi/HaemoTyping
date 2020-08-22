@@ -18,7 +18,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import butterknife.BindView;
 import co.ke.biofit.haemotyping.Constants;
 import co.ke.biofit.haemotyping.R;
-import co.ke.biofit.haemotyping.activity.MakeUpSearchResponse;
+import co.ke.biofit.haemotyping.model.MakeUpSearchResponse;
 import co.ke.biofit.haemotyping.adapter.FirebaseMakeUpViewHolder;
 
 public class SavedMakeUpListActivity extends AppCompatActivity {

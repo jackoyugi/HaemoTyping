@@ -1,5 +1,5 @@
 
-package co.ke.biofit.haemotyping.activity;
+package co.ke.biofit.haemotyping.model;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;

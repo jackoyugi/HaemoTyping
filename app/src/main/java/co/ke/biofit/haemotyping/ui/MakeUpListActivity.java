@@ -3,7 +3,6 @@ package co.ke.biofit.haemotyping.ui;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -25,7 +24,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import co.ke.biofit.haemotyping.Constants;
 import co.ke.biofit.haemotyping.R;
-import co.ke.biofit.haemotyping.activity.MakeUpSearchResponse;
+import co.ke.biofit.haemotyping.model.MakeUpSearchResponse;
 import co.ke.biofit.haemotyping.adapter.MakeUpAdapter;
 import co.ke.biofit.haemotyping.service.MakeUpApi;
 

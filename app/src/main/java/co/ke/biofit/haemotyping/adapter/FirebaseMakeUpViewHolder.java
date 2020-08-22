@@ -22,7 +22,7 @@ import java.util.ArrayList;
 
 import co.ke.biofit.haemotyping.Constants;
 import co.ke.biofit.haemotyping.R;
-import co.ke.biofit.haemotyping.activity.MakeUpSearchResponse;
+import co.ke.biofit.haemotyping.model.MakeUpSearchResponse;
 import co.ke.biofit.haemotyping.ui.MakeUpDetailActivity;
 
 public class FirebaseMakeUpViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {

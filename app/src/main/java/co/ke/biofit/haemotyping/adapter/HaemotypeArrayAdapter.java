@@ -1,16 +1,10 @@
 package co.ke.biofit.haemotyping.adapter;
 
 import android.content.Context;
-import android.graphics.Typeface;
 import android.util.Log;
 import android.widget.ArrayAdapter;
-import android.widget.EditText;
 
-import butterknife.BindView;
-import co.ke.biofit.haemotyping.R;
-
-import co.ke.biofit.haemotyping.activity.MakeUpSearchResponse;
-import co.ke.biofit.haemotyping.ui.MainActivity;
+import co.ke.biofit.haemotyping.model.MakeUpSearchResponse;
 import retrofit2.Call;
 
 public class HaemotypeArrayAdapter extends ArrayAdapter {

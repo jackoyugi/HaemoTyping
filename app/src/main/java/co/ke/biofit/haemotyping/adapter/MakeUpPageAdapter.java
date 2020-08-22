@@ -8,8 +8,7 @@ import androidx.fragment.app.FragmentPagerAdapter;
 
 import java.util.List;
 
-import co.ke.biofit.haemotyping.activity.MakeUpSearchResponse;
-import co.ke.biofit.haemotyping.activity.ProductColor;
+import co.ke.biofit.haemotyping.model.MakeUpSearchResponse;
 import co.ke.biofit.haemotyping.ui.MakeUpDetailFragment;
 import retrofit2.Call;
 

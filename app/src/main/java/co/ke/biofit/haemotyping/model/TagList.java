@@ -1,4 +1,4 @@
-package co.ke.biofit.haemotyping.activity;
+package co.ke.biofit.haemotyping.model;
 
 import org.parceler.Parcel;
 
