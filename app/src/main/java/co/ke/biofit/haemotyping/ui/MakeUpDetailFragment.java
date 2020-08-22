@@ -1,5 +1,7 @@
 package co.ke.biofit.haemotyping.ui;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -43,7 +45,7 @@ public class MakeUpDetailFragment extends Fragment implements View.OnClickListen
     private ArrayList<MakeUpSearchResponse> responses;
 
 
-    public static MakeUpDetailFragment newInstance(MakeUpSearchResponse makeUpSearchResponse) {
+    public static MakeUpDetailFragment newInstance(MakeUpSearchResponse makeUpSearchResponse)  {
         MakeUpDetailFragment makeUpDetailFragment = new MakeUpDetailFragment();
         Bundle args = new Bundle();
         args.putParcelable("makeUpSearchResponse", Parcels.wrap(makeUpSearchResponse));
@@ -97,6 +99,22 @@ public class MakeUpDetailFragment extends Fragment implements View.OnClickListen
                     .getReference(Constants.FIREBASE_CHILD_MAKEUPSEARCHRESPONSE);
             makeUpSearchResponseRef.push().setValue(makeUpSearchResponse);
             Toast.makeText(getContext(), "Saved", Toast.LENGTH_SHORT).show();
+        }
+        if (view == mWebsiteLabel) {
+            Intent webIntent = new Intent(Intent.ACTION_VIEW,
+                    Uri.parse(makeUpSearchResponse.getWebsiteLink()));
+            startActivity(webIntent);
+        }
+        if (view == mPhoneLabel) {
+            Intent phoneIntent = new Intent(Intent.ACTION_DIAL,
+                    Uri.parse("tel:" + makeUpSearchResponse.getProductLink()));
+            startActivity(phoneIntent);
+        }
+        if (view == mAddressLabel) {
+            Intent mapIntent = new Intent(Intent.ACTION_VIEW,
+                    Uri.parse("geo:" + makeUpSearchResponse.getAddress()));
+
+            startActivity(mapIntent);
         }
 
     }
