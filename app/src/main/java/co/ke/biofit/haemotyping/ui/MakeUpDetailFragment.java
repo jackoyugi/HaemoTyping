@@ -9,7 +9,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.squareup.picasso.Picasso;
 
 import org.parceler.Parcels;
@@ -19,10 +22,11 @@ import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import co.ke.biofit.haemotyping.Constants;
 import co.ke.biofit.haemotyping.R;
 import co.ke.biofit.haemotyping.activity.MakeUpSearchResponse;
 
-public class MakeUpDetailFragment extends Fragment {
+public class MakeUpDetailFragment extends Fragment implements View.OnClickListener {
     @BindView(R.id.makeUpImageView)
     ImageView mImageLabel;
     @BindView(R.id.makeUpNameTextView) TextView mNameLabel;
@@ -31,7 +35,7 @@ public class MakeUpDetailFragment extends Fragment {
     @BindView(R.id.websiteTextView) TextView mWebsiteLabel;
     @BindView(R.id.phoneTextView) TextView mPhoneLabel;
     @BindView(R.id.addressTextView) TextView mAddressLabel;
-    @BindView(R.id.saveMakeUpButton) TextView mSaveRestaurantButton;
+    @BindView(R.id.saveMakeUpButton) TextView mSavedMakeUpButton;
 
     private MakeUpSearchResponse makeUpSearchResponse;
     private Bundle savedInstanceState;
@@ -65,10 +69,18 @@ public class MakeUpDetailFragment extends Fragment {
 
 
         mNameLabel.setText(makeUpSearchResponse.getName());
-        mCategoriesLabel.setText(android.text.TextUtils.join(", ", categories));
+        mCategoriesLabel.setText(android.text.TextUtils.join(", ", makeUpSearchResponse.getProductColors())); //changed
 //        mRatingLabel.setText(Double.toString(makeUpSearchResponse.getRating()) + "/5");
         mPhoneLabel.setText(makeUpSearchResponse.getProductType());
         mAddressLabel.setText(makeUpSearchResponse.getWebsiteLink().toString());
+        mCategoriesLabel.setText(android.text.TextUtils.join(", ", makeUpSearchResponse.getAddress()));
+        mWebsiteLabel.setText(makeUpSearchResponse.getDescription());
+
+        mWebsiteLabel.setOnClickListener(this);
+        mPhoneLabel.setOnClickListener(this);
+        mAddressLabel.setOnClickListener(this);
+
+        mSavedMakeUpButton.setOnClickListener(this);
 
         return view;
     }
@@ -78,4 +90,16 @@ public class MakeUpDetailFragment extends Fragment {
         // Required empty public constructor
     }
 
+    @Override
+    public void onClick(View view) {
+
+        if (view == mSavedMakeUpButton) {
+            DatabaseReference makeUpSearchResponsetRef = FirebaseDatabase
+                    .getInstance()
+                    .getReference(Constants.FIREBASE_CHILD_MAKEUPSEARCHRESPONSE);
+            makeUpSearchResponsetRef.push().setValue(makeUpSearchResponse);
+            Toast.makeText(getContext(), "Saved", Toast.LENGTH_SHORT).show();
+        }
+
+    }
 }
