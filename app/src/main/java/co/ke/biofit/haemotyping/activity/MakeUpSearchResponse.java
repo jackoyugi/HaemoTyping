@@ -1,7 +1,12 @@
 
 package co.ke.biofit.haemotyping.activity;
 
+import android.location.Location;
+
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
+
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
@@ -66,7 +71,12 @@ public class MakeUpSearchResponse {
     private String apiFeaturedImage;
     @SerializedName("product_colors")
     @Expose
+
     private List<ProductColor> productColors = null;
+
+    private String pushId;
+
+    List<String> address = new ArrayList<>();
 
     /**
      * No args constructor for use in serialization
@@ -87,7 +97,7 @@ public class MakeUpSearchResponse {
 
 
     public MakeUpSearchResponse(int id, String brand, String name, String price, String priceSign, String currency, String imageLink, String productLink, String websiteLink,
-    String description, Double rating, String category, String productType, List tagList, String createdAt, String updatedAt, String productApiUrl, String apiFeaturedImage,  List productColors  ) {
+    String description, Double rating, String category, String productType, List tagList, String createdAt, String updatedAt, String productApiUrl, String apiFeaturedImage,  List productColors, ArrayList<String> address  ) {
         super();
         this.id = id;
         this.brand = brand;
@@ -108,6 +118,8 @@ public class MakeUpSearchResponse {
         this.productApiUrl = productApiUrl;
         this.apiFeaturedImage = apiFeaturedImage;
         this.productColors = productColors;
+        this.address = address;
+
     }
 
 
@@ -261,6 +273,19 @@ public class MakeUpSearchResponse {
 
     public void setProductColors(List<ProductColor> productColors) {
         this.productColors = productColors;
+    }
+
+    public String getPushId(){
+        return pushId;
+    }
+
+    public void setPushId(String pushId){
+        this.pushId = pushId;
+    }
+
+
+    public List<String> getAddress() {
+        return address;
     }
 
 

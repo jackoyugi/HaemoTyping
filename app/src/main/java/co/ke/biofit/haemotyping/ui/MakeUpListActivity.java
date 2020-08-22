@@ -34,8 +34,8 @@ import static co.ke.biofit.haemotyping.service.MakeUpClient.getClient;
 public class MakeUpListActivity extends AppCompatActivity {
     public static final String TAG = MakeUpListActivity.class.getSimpleName();
 
-    private SharedPreferences mSharedPreferences;
-    private String mRecentAddress;
+//    private SharedPreferences mSharedPreferences;
+//    private String mRecentAddress;
 
     @BindView(R.id.makeup_recyclerView) RecyclerView mRecyclerView;
     private MakeUpAdapter mAdapter;
@@ -52,10 +52,17 @@ public class MakeUpListActivity extends AppCompatActivity {
         ButterKnife.bind(this);
 
 
-
         Intent intent = getIntent();
 
         String location = intent.getStringExtra("location");
+
+        getProducts(location);
+
+
+    }
+
+    private void getProducts(String location){
+
 
         MakeUpApi client = getClient();
 
