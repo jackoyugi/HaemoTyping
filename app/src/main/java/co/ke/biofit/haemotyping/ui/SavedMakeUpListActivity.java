@@ -12,10 +12,13 @@ import android.view.ViewGroup;
 
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 import butterknife.BindView;
+import butterknife.ButterKnife;
 import co.ke.biofit.haemotyping.Constants;
 import co.ke.biofit.haemotyping.R;
 import co.ke.biofit.haemotyping.model.MakeUpSearchResponse;
@@ -33,8 +36,12 @@ public class SavedMakeUpListActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_makeup);
+        ButterKnife.bind(this);
 
-        mMakeUpReference = FirebaseDatabase.getInstance().getReference(Constants.FIREBASE_CHILD_MAKEUPSEARCHRESPONSE);
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        String uid = user.getUid();
+
+        mMakeUpReference = FirebaseDatabase.getInstance().getReference(Constants.FIREBASE_CHILD_MAKEUPSEARCHRESPONSE).child(uid);
         setUpFirebaseAdapter();
     }
 
